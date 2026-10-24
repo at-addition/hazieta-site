@@ -3,6 +3,7 @@ title: "歴代のクエスト 豪火 凶ガンキンの周回（Ver6.4～） モ
 pubDate: "2017-10-24T03:27:55+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/beginner-quest-kerbero/"
+cover: "../../../wp-content/uploads/2017/10/11-1.jpg"
 ---
 バイオハザードコラボにて、
 

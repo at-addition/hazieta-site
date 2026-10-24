@@ -3,6 +3,7 @@ title: "隠居者必見！第1回十六人衝突戦 無期限お守り モンハ
 pubDate: "2017-10-10T20:45:26+09:00"
 categories: ["お守り"]
 original: "http://hazieta.com/mhxr/accessory/1times-16people-accessory/"
+cover: "../../../wp-content/uploads/2017/10/1.jpg"
 ---
 隠居者さん必見！！
 

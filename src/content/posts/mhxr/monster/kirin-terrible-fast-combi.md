@@ -3,6 +3,7 @@ title: "キリン雷帝種 高速周回（フォルカ３戦車） モンハン�
 pubDate: "2017-11-14T23:50:41+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/kirin-terrible-fast-combi/"
+cover: "../../../wp-content/uploads/2017/11/catch.jpg"
 ---
 今月も、ギルド討伐依頼Ⅰが終わりましたね＼(^o^)／
 

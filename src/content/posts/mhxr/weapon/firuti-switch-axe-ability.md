@@ -3,6 +3,7 @@ title: "フィルティスラアクの性能と評価 モンハンエクスプ�
 pubDate: "2017-08-03T21:25:03+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/firuti-switch-axe-ability/"
+cover: "../../../wp-content/uploads/2017/07/1501168308-300x235.jpg"
 ---
 今月の星6進化はフィルティシリーズの
 

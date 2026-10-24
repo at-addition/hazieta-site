@@ -3,6 +3,7 @@ title: "大剣の使い方「タメ斬りガードタメキャンセル」 モ�
 pubDate: "2017-09-05T23:54:44+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/use-great-sword-rsrv-cancel/"
+cover: "../../../wp-content/uploads/2017/09/11-1-225x300.jpg"
 ---
 レア大剣（オバフォ）もついに覇玉になりましたねー♪
 

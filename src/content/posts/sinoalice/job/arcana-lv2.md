@@ -3,6 +3,7 @@ title: "ジョブアルカナLV2の入手方法と効果 シノアリス"
 pubDate: "2017-11-27T16:00:47+09:00"
 categories: ["ジョブ"]
 original: "http://hazieta.com/sinoalice/job/arcana-lv2/"
+cover: "../../../wp-content/uploads/2017/11/1-2.jpg"
 ---
 ついに来ましたねアルカナLV2！！＼(^o^)／
 

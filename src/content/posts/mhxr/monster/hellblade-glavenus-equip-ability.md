@@ -3,6 +3,7 @@ title: "ガムート装備一覧（防具 武器）武技 スキルの評価 モ
 pubDate: "2017-07-31T16:00:17+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/hellblade-glavenus-equip-ability/"
+cover: "../../../wp-content/uploads/2017/07/IMG_6383-218x300.png"
 ---
 8/1に狩猟解禁の「ガムート」、
 

@@ -3,6 +3,7 @@ title: "狩猟祭カーニバル フラッグの効率的な集め方 モンハ�
 pubDate: "2017-08-04T01:51:41+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/carnival-flag-collect/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6496-234x300.png"
 ---
 本日から狩猟祭カーニバルですね( ´ ▽ ` )ﾉ
 

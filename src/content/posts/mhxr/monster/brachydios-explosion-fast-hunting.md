@@ -3,6 +3,7 @@ title: "ブラキディオス爆氷種 最速タイム更新（罠なし） モ�
 pubDate: "2017-10-09T02:56:28+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/brachydios-explosion-fast-hunting/"
+cover: "../../../wp-content/uploads/2017/10/0e56ef9bcbf9711c936f1099794522f1-169x300.jpg"
 ---
 ギルドチケット収集はいかがですか？＼(^o^)／
 

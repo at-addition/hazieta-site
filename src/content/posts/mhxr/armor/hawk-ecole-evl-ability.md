@@ -3,6 +3,7 @@ title: "ホーク エコールの進化 スキルと性能の評価 モンハン
 pubDate: "2017-08-21T14:37:32+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/hawk-ecole-evl-ability/"
+cover: "../../../wp-content/uploads/2017/08/19-220x300.jpg"
 ---
 待ちに待ったホーク エコールの進化情報＼(^o^)／
 
