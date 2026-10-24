@@ -3,6 +3,7 @@ title: "七つの大罪コラボ 装備（武器 防具）武技 スキルの評
 pubDate: "2017-08-03T14:00:42+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-equip-ability/"
+cover: "../../../wp-content/uploads/2017/08/3-221x300.jpg"
 ---
 Ver6.3の大型コラボイベント♪
 

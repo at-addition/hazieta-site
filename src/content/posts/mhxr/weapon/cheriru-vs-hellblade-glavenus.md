@@ -3,6 +3,7 @@ title: "チェリル（覇玉ハンマー）の使い方 対ディノバルド �
 pubDate: "2017-07-29T21:20:06+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/cheriru-vs-hellblade-glavenus/"
+cover: "../../../wp-content/uploads/2017/07/IMG_6272-220x300.png"
 ---
 7月はディノバルドとブラキディオス炸裂個体の月でしたね( ´ ▽ ` )ﾉ
 

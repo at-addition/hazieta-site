@@ -3,6 +3,7 @@ title: "第17回十六人討伐戦は劇毒 装備（耐性）や対策 モン�
 pubDate: "2017-08-20T16:00:33+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/17times-16people-deadly-poison-prepare/"
+cover: "../../../wp-content/uploads/2017/08/11-4-265x300.jpg"
 ---
 ギルチケ排出やコラボイベントが終わったのも束の間！！
 

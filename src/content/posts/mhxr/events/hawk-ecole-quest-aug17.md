@@ -3,6 +3,7 @@ title: "ギルド討伐依頼 ホーク エコール装備（防具）の入手 
 pubDate: "2017-08-12T16:00:38+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/hawk-ecole-quest-aug17/"
+cover: "../../../wp-content/uploads/2017/08/1-7-300x90.jpg"
 ---
 2017年8月のギルド討伐依頼クエストが
 

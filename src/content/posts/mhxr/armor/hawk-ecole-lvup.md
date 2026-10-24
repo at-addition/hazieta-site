@@ -3,6 +3,7 @@ title: "ホーク エコール装備（防具）の強化素材や進化 モン�
 pubDate: "2017-08-06T13:59:38+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/hawk-ecole-lvup/"
+cover: "../../../wp-content/uploads/2017/08/2-2.jpg"
 ---
 現在、最高峰の防具 ホーク エコール ですが、
 

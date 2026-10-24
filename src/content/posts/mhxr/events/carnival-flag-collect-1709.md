@@ -3,6 +3,7 @@ title: "２周年記念狩猟カーニバル フラッグの効率的な集め�
 pubDate: "2017-09-07T21:17:31+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/carnival-flag-collect-1709/"
+cover: "../../../wp-content/uploads/2017/09/1-4-300x140.jpg"
 ---
 明日の2017/09/08は、
 

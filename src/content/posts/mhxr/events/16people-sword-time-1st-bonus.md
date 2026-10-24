@@ -3,6 +3,7 @@ title: "十六人衝突戦 抜刀時間と１位ボーナス モンハンエク�
 pubDate: "2017-10-11T00:13:52+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/16people-sword-time-1st-bonus/"
+cover: "../../../wp-content/uploads/2017/10/1-1.jpg"
 ---
 十六人衝突戦、2倍イベントの初日おつかれさまでした＼(^o^)／
 

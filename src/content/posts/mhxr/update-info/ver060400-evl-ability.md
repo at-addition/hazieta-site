@@ -3,6 +3,7 @@ title: "アプデ情報Ver6.4 進化装備の性能と評価 モンハンエク�
 pubDate: "2017-08-21T14:00:44+09:00"
 categories: ["アップデート情報"]
 original: "http://hazieta.com/mhxr/update-info/ver060400-evl-ability/"
+cover: "../../../wp-content/uploads/2017/08/1-13-220x300.jpg"
 ---
 Ver6.4のアップデート情報としまして～
 

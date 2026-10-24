@@ -1,9 +1,12 @@
 ---
+import { GAMES } from '../lib/games';
+
 interface Props {
   title?: string;
   description?: string;
 }
-const SITE_NAME = 'ハジエッセイ – 要は日記';
+const SITE_NAME = 'ハジエッセイ';
+const TAGLINE = '要は日記';
 const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,55 +17,119 @@ const base = import.meta.env.BASE_URL;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href={`${base}favicon.ico`} />
-    <title>{title ? `${title} | ${SITE_NAME}` : SITE_NAME}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    />
+    <title>{title ? `${title} | ${SITE_NAME} – ${TAGLINE}` : `${SITE_NAME} – ${TAGLINE}`}</title>
   </head>
   <body>
     <header class="site-header">
-      <a class="site-name" href={base}>{SITE_NAME}</a>
+      <div class="inner">
+        <a class="logo" href={base}>
+          <span class="logo-main">{SITE_NAME}</span>
+          <span class="logo-sub">{TAGLINE}</span>
+        </a>
+        <nav class="site-nav" aria-label="ゲーム">
+          {GAMES.map((g) => (
+            <a href={`${base}?game=${g.key}`} style={`--hue:${g.hue}`}>{g.label}</a>
+          ))}
+        </nav>
+      </div>
     </header>
     <main>
       <slot />
     </main>
     <footer class="site-footer">
-      <p>© {SITE_NAME}</p>
+      <div class="inner">
+        <span class="logo-main small">{SITE_NAME}</span>
+        <p>© {SITE_NAME} – {TAGLINE}</p>
+      </div>
     </footer>
   </body>
 </html>
 
 <style is:global>
   :root {
-    --bg: #fbfaf7;
-    --fg: #222;
-    --muted: #666;
-    --line: #e4e0d8;
-    --accent: #a0522d;
+    --bg: #f5efe4;
+    --surface: #fffdf9;
+    --fg: #2b241e;
+    --muted: #7b6f63;
+    --line: #e5dacb;
+    --accent: hsl(24 82% 46%);
+    --accent-soft: hsl(24 90% 94%);
+    --shadow: 0 1px 2px rgb(60 40 20 / 6%), 0 8px 24px rgb(60 40 20 / 8%);
+    --radius: 14px;
+    --sat: 70%;
+    --light: 46%;
+    --tint: 93%;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1b1a18;
-      --fg: #e8e6e1;
-      --muted: #a39e94;
-      --line: #36332e;
-      --accent: #e0a070;
+      --bg: #15120f;
+      --surface: #1f1a15;
+      --fg: #ece4d8;
+      --muted: #a69885;
+      --line: #342b22;
+      --accent: hsl(28 88% 62%);
+      --accent-soft: hsl(28 40% 18%);
+      --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 35%);
+      --light: 64%;
+      --tint: 18%;
     }
   }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: system-ui, -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
-    line-height: 1.8;
+    font-family: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+    line-height: 1.85;
+    letter-spacing: 0.02em;
   }
-  main, .site-header, .site-footer {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-  .site-header { padding-top: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-  .site-name { color: var(--fg); font-weight: 700; font-size: 1.25rem; text-decoration: none; }
-  .site-footer { margin-top: 48px; padding-top: 16px; padding-bottom: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
   a { color: var(--accent); }
   img { max-width: 100%; height: auto; }
+  .inner, main { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* ヘッダー */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+  .logo { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--fg); }
+  .logo-main { font-family: 'Dela Gothic One', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; line-height: 1; }
+  .logo-main.small { font-size: 1.1rem; }
+  .logo-sub { font-size: 0.8rem; color: var(--muted); }
+  .site-nav { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 0; }
+  .site-nav a {
+    font-size: 0.8rem; font-weight: 500; text-decoration: none; padding: 4px 12px; border-radius: 999px;
+    color: hsl(var(--hue) var(--sat) var(--light));
+    background: hsl(var(--hue) 70% var(--tint));
+  }
+  .site-nav a:hover { filter: brightness(0.95); }
+
+  /* フッター */
+  .site-footer { margin-top: 72px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  .site-footer .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 40px; flex-wrap: wrap; }
+  .site-footer p { margin: 0; }
+
+  /* ゲームのバッジ（--hue を付けて使う） */
+  .game-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+    padding: 2px 10px; border-radius: 999px;
+    color: hsl(var(--hue) var(--sat) var(--light));
+    background: hsl(var(--hue) 70% var(--tint));
+  }
+  .chip {
+    display: inline-block; font-size: 0.75rem; color: var(--muted);
+    border: 1px solid var(--line); padding: 1px 10px; border-radius: 999px;
+  }
 </style>

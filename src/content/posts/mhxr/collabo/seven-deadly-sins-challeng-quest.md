@@ -3,6 +3,7 @@ title: "七つの大罪コラボ 挑戦クエ（片手 ハンマー 弓）モン
 pubDate: "2017-08-13T09:44:05+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-challeng-quest/"
+cover: "../../../wp-content/uploads/2017/08/5-6-169x300.jpg"
 ---
 七つの大罪コラボの挑戦クエストについて、
 

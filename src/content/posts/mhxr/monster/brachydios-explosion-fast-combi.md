@@ -3,6 +3,7 @@ title: "ブラキディオス爆氷種 高速討伐（罠なし） モンハン�
 pubDate: "2017-10-08T04:10:51+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/brachydios-explosion-fast-combi/"
+cover: "../../../wp-content/uploads/2017/10/nai.jpg"
 ---
 ブラキディオス爆氷種の配信も始まりましたが、
 
