@@ -3,6 +3,7 @@ title: "アプデ情報Ver6.4 入門クエストと初級クエスト モンハ�
 pubDate: "2017-08-29T12:00:15+09:00"
 categories: ["アップデート情報"]
 original: "http://hazieta.com/mhxr/update-info/ver060400-beginning-quest/"
+cover: "../../../wp-content/uploads/2017/08/203105205-300x169.jpg"
 ---
 アップデートメンテナンス中ですが♪
 

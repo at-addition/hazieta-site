@@ -3,6 +3,7 @@ title: "クリーガースラアク（ティグ）の使い方 属性解放突�
 pubDate: "2017-08-02T23:33:02+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/krieger-switch-axe-ability/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6469-169x300.jpg"
 ---
 いわゆる「ティグ」は
 

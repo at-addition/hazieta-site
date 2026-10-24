@@ -3,6 +3,7 @@ title: "バイオハザードコラボ イベント防具どれを作る？ モ�
 pubDate: "2017-10-31T02:17:18+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/biohazard-equip-which/"
+cover: "../../../wp-content/uploads/2017/10/1-3.jpg"
 ---
 バイオハザードコラボも、明日で終了ですね＼(^o^)／
 

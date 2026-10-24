@@ -3,6 +3,7 @@ title: "七つの大罪コラボ終了 イベント防具の作成 モンハン�
 pubDate: "2017-08-19T23:57:38+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-end-create-equip/"
+cover: "../../../wp-content/uploads/2017/08/2-10-300x160.jpg"
 ---
 七つの大罪コラボもイベントクエストが終了し、
 

@@ -3,6 +3,7 @@ title: "交易店の無期限お守りが激安に！モンハンエクスプロ
 pubDate: "2017-08-02T00:19:12+09:00"
 categories: ["お守り"]
 original: "http://hazieta.com/mhxr/accessory/indefinite-trading/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6406-244x300.png"
 ---
 数ヶ月前より、交易店で交換可能なお守りが
 

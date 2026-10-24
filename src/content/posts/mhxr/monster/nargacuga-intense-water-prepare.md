@@ -3,6 +3,7 @@ title: "ナルガ烈水種 事前準備と対策、おすすめ装備 モンハ�
 pubDate: "2017-08-21T18:17:56+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/nargacuga-intense-water-prepare/"
+cover: "../../../wp-content/uploads/2017/08/1-12-300x167.jpg"
 ---
 Ver6.4の新モンスが公開されました♪
 

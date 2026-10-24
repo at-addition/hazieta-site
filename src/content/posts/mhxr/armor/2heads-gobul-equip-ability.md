@@ -3,6 +3,7 @@ title: "二頭狩猟チャナガブル 装備（防具）一覧 スキル評価 
 pubDate: "2017-09-04T14:00:29+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/2heads-gobul-equip-ability/"
+cover: "../../../wp-content/uploads/2017/09/1-1-227x300.jpg"
 ---
 チャナガブル（とガノトトス亜種）
 

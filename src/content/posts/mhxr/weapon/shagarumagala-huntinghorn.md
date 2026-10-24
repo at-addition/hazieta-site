@@ -3,6 +3,7 @@ title: "シャガル笛（天笛）の使い方と装備スキル モンハン�
 pubDate: "2017-09-21T03:37:32+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/shagarumagala-huntinghorn/"
+cover: "../../../wp-content/uploads/2017/09/1-9-169x300.jpg"
 ---
 シャガル笛（天笛）の使い方と装備（スキル）について、
 

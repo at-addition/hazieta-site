@@ -3,6 +3,7 @@ title: "ギルド討伐依頼Ⅱ アルゴー/エリザ装備の評価と強化�
 pubDate: "2017-10-23T03:38:39+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/argo-elisa-ability/"
+cover: "../../../wp-content/uploads/2017/08/2-2.jpg"
 ---
 皆さん、ギルド討伐依頼Ⅱは行きましたか？＼(^o^)／
 

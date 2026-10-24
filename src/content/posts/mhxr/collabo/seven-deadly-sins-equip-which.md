@@ -3,6 +3,7 @@ title: "七つの大罪コラボ イベント防具どれを作る？ モンハ�
 pubDate: "2017-08-11T23:37:52+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-equip-which/"
+cover: "../../../wp-content/uploads/2017/08/9-1-221x300.jpg"
 ---
 七つの大罪コラボも二日目を終えようとしています～♪
 

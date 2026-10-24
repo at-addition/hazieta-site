@@ -3,6 +3,7 @@ title: "ホーク エコールの進化素材と強化素材 モンハンエク�
 pubDate: "2017-08-29T16:33:38+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/hawk-ecole-evl-enhance-material/"
+cover: "../../../wp-content/uploads/2017/08/IMG_7048-169x300.png"
 ---
 2017年7月に予告されておりました
 

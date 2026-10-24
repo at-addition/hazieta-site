@@ -3,6 +3,7 @@ title: "2周年記念パーティ公式生放送について モンハンエク�
 pubDate: "2017-08-31T19:30:47+09:00"
 categories: ["アップデート情報"]
 original: "http://hazieta.com/mhxr/update-info/2nd-anniversary-party/"
+cover: "../../../wp-content/uploads/2017/08/6-8-300x280.jpg"
 ---
 2周年記念として
 

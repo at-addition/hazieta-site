@@ -3,6 +3,7 @@ title: "アプデ情報Ver7.0 進化装備のスキルと評価 モンハンエ�
 pubDate: "2017-09-27T14:14:31+09:00"
 categories: ["アップデート情報"]
 original: "http://hazieta.com/mhxr/update-info/ver070000-equip-ability/"
+cover: "../../../wp-content/uploads/2017/09/1-10.jpg"
 ---
 モンハンエクスプロアも、
 

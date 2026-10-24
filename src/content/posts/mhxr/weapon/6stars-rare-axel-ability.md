@@ -3,6 +3,7 @@ title: "黒羽アクセル（黒夜閃斧）性能と評価 モンハンエク�
 pubDate: "2017-11-18T22:31:24+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/6stars-rare-axel-ability/"
+cover: "../../../wp-content/uploads/2017/11/IMG_8581-169x300.jpg"
 ---
 双ラギア、色んな編成があって楽しいですね＼(^o^)／
 

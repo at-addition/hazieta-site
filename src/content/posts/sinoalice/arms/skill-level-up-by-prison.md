@@ -3,6 +3,7 @@ title: "深淵ヘ続ク監獄 咎人の心について（スキルレベル上�
 pubDate: "2017-11-30T17:58:15+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/sinoalice/arms/skill-level-up-by-prison/"
+cover: "../../../wp-content/uploads/2017/11/1-3.jpg"
 ---
 深淵ヘ続ク監獄のイベント、
 
