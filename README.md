@@ -16,8 +16,10 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 | `src/components/PostCard.astro` | 一覧のカード（画像・ゲームのバッジ・日付・タイトル・抜き出し） |
 | `src/lib/games.ts` | パスの先頭（`mhxr` / `sinoalice` / `other`）からゲームを決める表と色。カードの抜き出しもここ |
 | `src/assets/hazieta-logo.svg` / `rabbit.svg` | 当時のロゴ（トップの黒い帯と、ヘッダーのうさぎ）。元の画像をなぞって作った SVG で、色は文字色に合わせる |
-| `public/favicon.svg` | うさぎのファビコン（明るい画面と暗い画面で色が変わる） |
-| `design/original/` | ロゴの元の画像（当時のヘッダー 1080×360 とアイコン 400×400）。`scripts/trace-logo.py` でなぞった |
+| `public/favicon.svg` | ブラウザのタブのアイコン。顔だけのうさぎ（明るい画面と暗い画面で色が変わる） |
+| `public/favicon.ico` / `apple-touch-icon.png` / `icon-192.png` / `icon-512.png` / `site.webmanifest` | スマホのホーム画面・ブックマークのアイコン。体付きのうさぎ（当時のヘッダーから切り出し）を黒地の正方形に |
+| `design/original/` | 当時の画像。ヘッダー 1080×360・アイコン 400×400・サイトのタイトル画像 768×241（Wayback から）。`scripts/trace-logo.py` でなぞった |
+| `design/rabbit-body-square_1748.png` | 体付きのうさぎの正方形アイコンの元（上のアイコンはここから縮めた） |
 | `src/layouts/Base.astro` | 全ページ共通の枠と色（明るい画面・暗い画面）、フォント（Google Fonts の Dela Gothic One と Zen Kaku Gothic New） |
 | `scripts/import.py` | 取り出した記事と画像を、このサイトの形に書き直して取り込む |
 | `.github/workflows/deploy.yml` | `main` に入ったらビルドして Pages へ出す |
