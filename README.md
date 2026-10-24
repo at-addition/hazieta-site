@@ -15,10 +15,12 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 | `src/pages/` | 一覧（`index.astro`）・記事（`[...slug].astro`）・404 |
 | `src/components/PostCard.astro` | 一覧のカード（画像・ゲームのバッジ・日付・タイトル・抜き出し） |
 | `src/lib/games.ts` | パスの先頭（`mhxr` / `sinoalice` / `other`）からゲームを決める表と色。カードの抜き出しもここ |
-| `src/assets/hazieta-logo.svg` / `rabbit.svg` | 当時のロゴ（トップの黒い帯と、ヘッダーのうさぎ）。元の画像をなぞって作った SVG で、色は文字色に合わせる |
+| `src/assets/hazieta-title.svg` | ヘッダーのロゴ。当時のタイトル画像（ハジエッセイ｜要は日記・www.hazieta.com とうさぎ）をなぞった SVG |
+| `src/assets/hazieta-logo.svg` | トップの黒い帯の当時のロゴ（hazieta.com とうさぎ）。なぞった SVG で、色は文字色に合わせる |
+| `src/assets/rabbit.svg` | 顔だけのうさぎの SVG（今は `public/favicon.svg` の元） |
 | `public/favicon.svg` | ブラウザのタブのアイコン。顔だけのうさぎ（明るい画面と暗い画面で色が変わる） |
 | `public/favicon.ico` / `apple-touch-icon.png` / `icon-192.png` / `icon-512.png` / `site.webmanifest` | スマホのホーム画面・ブックマークのアイコン。当時のサイトアイコン（体付きのうさぎ `M2`、白地の正方形）をなぞって作り直したもの |
-| `design/original/` | 当時の画像。ヘッダー 1080×360・アイコン 400×400（本人から）、サイトアイコン `M2` 300×300・タイトル画像 768×241（Wayback から）。`scripts/trace-logo.py` でなぞった |
+| `design/original/` | 当時の画像。ヘッダー 1080×360・アイコン 400×400（本人から）、サイトアイコン `M2` 300×300・タイトル画像 798×250（Wayback から）。`scripts/trace-logo.py` でなぞった |
 | `design/rabbit-body-square_1791.png` | `M2` をなぞった正方形アイコンの元（上のアイコンはここから縮めた） |
 | `src/layouts/Base.astro` | 全ページ共通の枠と色（明るい画面・暗い画面）、フォント（Google Fonts の Dela Gothic One と Zen Kaku Gothic New） |
 | `scripts/import.py` | 取り出した記事と画像を、このサイトの形に書き直して取り込む |
