@@ -3,6 +3,7 @@ title: "すぐに見つかる発見物！アイルーペスカ活用術 モン�
 pubDate: "2017-09-04T00:13:36+09:00"
 categories: ["アイルー"]
 original: "http://hazieta.com/mhxr/felyne/pesca/"
+cover: "../../../wp-content/uploads/2017/09/11-250x300.jpg"
 ---
 発見物探しの心強い相棒！
 

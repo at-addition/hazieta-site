@@ -3,6 +3,7 @@ title: "第17回十六人討伐戦(劇毒) 強個体の難易度 モンハンエ
 pubDate: "2017-08-22T01:35:02+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/17times-16people-difficulty/"
+cover: "../../../wp-content/uploads/2017/08/1-14-169x300.jpg"
 ---
 第17回十六人討伐戦の
 

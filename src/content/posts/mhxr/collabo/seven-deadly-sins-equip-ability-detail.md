@@ -3,6 +3,7 @@ title: "七つの大罪コラボ 装備詳細（武器 防具）と評価 モン
 pubDate: "2017-08-09T14:00:37+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-equip-ability-detail/"
+cover: "../../../wp-content/uploads/2017/08/1-3-221x300.jpg"
 ---
 今回の七つの大罪コラボのイベントは少し特殊です＼(^o^)／
 

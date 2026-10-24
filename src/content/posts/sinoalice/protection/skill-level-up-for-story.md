@@ -3,6 +3,7 @@ title: "防具スキルレベル上げ(モノガタリ補助) 防具イベント
 pubDate: "2017-12-01T02:34:11+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/sinoalice/protection/skill-level-up-for-story/"
+cover: "../../../wp-content/uploads/2018/02/banaa.jpg"
 ---
 数ヶ月おきに開催されます「防具イベント」、
 

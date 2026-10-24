@@ -3,6 +3,7 @@ title: "ソロ専用の高難度クエスト～単騎、狩場を走る～ モ�
 pubDate: "2017-09-10T21:12:34+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/difficulty-quest-single-prepare/"
+cover: "../../../wp-content/uploads/2017/09/2-4.jpg"
 ---
 昨日の早朝のこと、
 

@@ -3,6 +3,7 @@ title: "第18回十六人討伐戦 超レア武技秘伝書の確率（チケ80�
 pubDate: "2017-09-20T01:44:12+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/18times-16people-rare-book-prob/"
+cover: "../../../wp-content/uploads/2017/09/2-7.jpg"
 ---
 第18回十六人討伐戦が始まりましたね＼(^o^)／
 
