@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 const SITE_NAME = 'ハジエッセイ – 要は日記';
-const { title, description = '2017年に書いていたモンハンエクスプロアとシノアリスの日記' } = Astro.props;
+const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -25,8 +25,7 @@ const base = import.meta.env.BASE_URL;
       <slot />
     </main>
     <footer class="site-footer">
-      <p>2017年に hazieta.com で公開していた記事を、Wayback Machine に残っていた記録から復元したものです。
-        ゲームの情報は当時のもので、今とは違います。</p>
+      <p>© {SITE_NAME}</p>
     </footer>
   </body>
 </html>
