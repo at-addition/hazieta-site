@@ -20,22 +20,24 @@ const base = import.meta.env.BASE_URL;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="color-scheme" content="light dark" />
+    <!-- 当時のロゴが黒地に白なので、サイトは常に暗い画面にする（ゲームの画面写真も映える） -->
+    <meta name="color-scheme" content="dark" />
     <!-- ブラウザのタブは顔だけのうさぎ（SVG）、スマホのホーム画面とブックマークは当時のサイトアイコン（体付きのうさぎ M2） -->
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}site.webmanifest`} />
-    <meta name="theme-color" content="#0d0c0b" />
+    <meta name="theme-color" content="#0b0b0e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
     />
     <title>{title ? `${title} | ${SITE_NAME} – ${TAGLINE}` : `${SITE_NAME} – ${TAGLINE}`}</title>
   </head>
   <body>
+    <div class="bg-glow" aria-hidden="true"></div>
     <header class="site-header">
       <div class="inner">
         <a class="logo" href={base} aria-label={`${SITE_NAME} – ${TAGLINE}`}>
@@ -43,7 +45,7 @@ const base = import.meta.env.BASE_URL;
         </a>
         <nav class="site-nav" aria-label="ゲーム">
           {GAMES.map((g) => (
-            <a href={`${base}?game=${g.key}`} style={`--hue:${g.hue}`}>{g.label}</a>
+            <a href={`${base}?game=${g.key}`} style={`--hue:${g.hue}`}><span class="dot"></span>{g.short}</a>
           ))}
         </nav>
       </div>
@@ -53,7 +55,7 @@ const base = import.meta.env.BASE_URL;
     </main>
     <footer class="site-footer">
       <div class="inner">
-        <span class="logo-main small">{SITE_NAME}</span>
+        <span class="hud">HAZIETA.COM // GAME DIARY</span>
         <p>© {SITE_NAME} – {TAGLINE}</p>
       </div>
     </footer>
@@ -62,32 +64,21 @@ const base = import.meta.env.BASE_URL;
 
 <style is:global>
   :root {
-    --bg: #f5efe4;
-    --surface: #fffdf9;
-    --fg: #2b241e;
-    --muted: #7b6f63;
-    --line: #e5dacb;
-    --accent: hsl(24 82% 46%);
-    --accent-soft: hsl(24 90% 94%);
-    --shadow: 0 1px 2px rgb(60 40 20 / 6%), 0 8px 24px rgb(60 40 20 / 8%);
-    --radius: 14px;
-    --sat: 70%;
-    --light: 46%;
-    --tint: 93%;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #15120f;
-      --surface: #1f1a15;
-      --fg: #ece4d8;
-      --muted: #a69885;
-      --line: #342b22;
-      --accent: hsl(28 88% 62%);
-      --accent-soft: hsl(28 40% 18%);
-      --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 35%);
-      --light: 64%;
-      --tint: 18%;
-    }
+    color-scheme: dark;
+    --bg: #0b0b0e;
+    --surface: #15151b;
+    --surface-2: #1c1c24;
+    --fg: #ecebf0;
+    --muted: #9b99a8;
+    --line: rgb(255 255 255 / 8%);
+    --accent: hsl(18 95% 58%);
+    --shadow: 0 1px 0 rgb(255 255 255 / 4%) inset, 0 12px 32px rgb(0 0 0 / 45%);
+    --radius: 16px;
+    /* ゲームの色（--hue と組み合わせる） */
+    --sat: 92%;
+    --light: 62%;
+    --tint: 16%;
+    --hud: 'Chakra Petch', 'Zen Kaku Gothic New', sans-serif;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -98,46 +89,63 @@ const base = import.meta.env.BASE_URL;
     font-family: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
     line-height: 1.85;
     letter-spacing: 0.02em;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* 背景にゲームの色のぼんやりした光と、細い方眼 */
+  .bg-glow {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(60vw 50vh at 85% -10%, hsl(18 95% 50% / 18%), transparent 60%),
+      radial-gradient(50vw 45vh at -10% 30%, hsl(285 90% 55% / 14%), transparent 60%),
+      linear-gradient(rgb(255 255 255 / 2.5%) 1px, transparent 1px) 0 0 / 100% 48px,
+      linear-gradient(90deg, rgb(255 255 255 / 2.5%) 1px, transparent 1px) 0 0 / 48px 100%;
   }
   a { color: var(--accent); }
   img { max-width: 100%; height: auto; }
-  .inner, main { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .inner, main { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  ::selection { background: hsl(18 95% 58% / 40%); }
 
   /* ヘッダー */
   .site-header {
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: saturate(1.4) blur(10px);
+    background: rgb(11 11 14 / 72%);
+    backdrop-filter: saturate(1.6) blur(14px);
     border-bottom: 1px solid var(--line);
   }
   .site-header .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
   .logo { display: flex; align-items: center; text-decoration: none; color: var(--fg); padding: 8px 0; }
   .logo-title { display: block; width: clamp(180px, 42vw, 230px); }
-  .logo-title :global(svg) { display: block; width: 100%; height: auto; --logo-hole: var(--bg); }
-  .logo-main { font-family: 'Dela Gothic One', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; line-height: 1; }
-  .logo-main.small { font-size: 1.1rem; }
+  .logo-title svg { display: block; width: 100%; height: auto; --logo-hole: var(--bg); }
   .site-nav { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 0; }
   .site-nav a {
-    font-size: 0.8rem; font-weight: 500; text-decoration: none; padding: 4px 12px; border-radius: 999px;
-    color: hsl(var(--hue) var(--sat) var(--light));
-    background: hsl(var(--hue) 70% var(--tint));
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--hud); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-decoration: none;
+    padding: 5px 12px; border-radius: 8px; color: var(--fg);
+    border: 1px solid var(--line); background: rgb(255 255 255 / 3%);
+    transition: border-color 0.2s, background 0.2s;
   }
-  .site-nav a:hover { filter: brightness(0.95); }
+  .site-nav a:hover { border-color: hsl(var(--hue) var(--sat) var(--light) / 60%); background: hsl(var(--hue) 80% 50% / 10%); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: hsl(var(--hue) var(--sat) var(--light)); box-shadow: 0 0 8px hsl(var(--hue) var(--sat) var(--light)); }
 
   /* フッター */
-  .site-footer { margin-top: 72px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  .site-footer { margin-top: 88px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
   .site-footer .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 40px; flex-wrap: wrap; }
   .site-footer p { margin: 0; }
+  .hud { font-family: var(--hud); font-weight: 700; letter-spacing: 0.2em; font-size: 0.75rem; color: var(--muted); }
 
   /* ゲームのバッジ（--hue を付けて使う） */
   .game-badge {
-    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-    padding: 2px 10px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--hud); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+    padding: 2px 9px; border-radius: 6px;
     color: hsl(var(--hue) var(--sat) var(--light));
-    background: hsl(var(--hue) 70% var(--tint));
+    background: hsl(var(--hue) 80% 50% / var(--tint));
+    border: 1px solid hsl(var(--hue) var(--sat) var(--light) / 35%);
   }
   .chip {
     display: inline-block; font-size: 0.75rem; color: var(--muted);
-    border: 1px solid var(--line); padding: 1px 10px; border-radius: 999px;
+    border: 1px solid var(--line); padding: 1px 10px; border-radius: 6px;
   }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
