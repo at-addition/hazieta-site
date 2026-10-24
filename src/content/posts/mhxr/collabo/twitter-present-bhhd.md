@@ -3,6 +3,7 @@ title: "コラボキャンペーン ツイッタープレゼント当選 モン�
 pubDate: "2017-12-18T00:34:31+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/twitter-present-bhhd/"
+cover: "../../../wp-content/uploads/2017/12/1-300x225.jpg"
 ---
 サンリオコラボ始まりましたねー( ´ ▽ ` )ﾉ
 

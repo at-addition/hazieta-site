@@ -3,6 +3,7 @@ title: "裂界変異モンスターとは？ 隠密と忍び モンハンエク�
 pubDate: "2017-08-24T21:09:19+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/crack-gap-mutant-monster/"
+cover: "../../../wp-content/uploads/2017/08/nail11-2-300x196.jpg"
 ---
 モンハンエクスプロア（MHXR）で、
 

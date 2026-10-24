@@ -3,6 +3,7 @@ title: "ナルガ烈水 装備一覧（武器 防具）武技 スキルの評価
 pubDate: "2017-08-31T00:52:10+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/nargacuga-intense-water-equip-ability/"
+cover: "../../../wp-content/uploads/2017/08/1-20.jpg"
 ---
 9/1に狩猟解禁の「ナルガクルガ烈水種」
 

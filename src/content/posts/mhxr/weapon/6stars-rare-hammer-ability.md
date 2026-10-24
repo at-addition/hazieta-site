@@ -3,6 +3,7 @@ title: "黒羽のハンマー（砕塊豪鎚） 性能と評価 モンハンエ�
 pubDate: "2017-08-01T21:44:54+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/mhxr/weapon/6stars-rare-hammer-ability/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6404-218x300.png"
 ---
 ガムート初日、皆さま楽しめていますでしょうか＼(^o^)／
 

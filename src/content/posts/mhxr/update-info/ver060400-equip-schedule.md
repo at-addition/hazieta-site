@@ -3,6 +3,7 @@ title: "アプデ情報Ver6.4 新装備と9月スケジュール モンハンエ
 pubDate: "2017-08-30T17:31:59+09:00"
 categories: ["アップデート情報"]
 original: "http://hazieta.com/mhxr/update-info/ver060400-equip-schedule/"
+cover: "../../../wp-content/uploads/2017/08/7-5-274x300.jpg"
 ---
 Ver6.4はリファインが大量で楽しいですね＼(^o^)／
 

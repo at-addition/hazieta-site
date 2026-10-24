@@ -3,6 +3,7 @@ title: "転身回復スキル 発動方法やタイミングと効果 モンハ�
 pubDate: "2017-08-26T15:51:14+09:00"
 categories: ["防具"]
 original: "http://hazieta.com/mhxr/armor/passive-heal-skill/"
+cover: "../../../wp-content/uploads/2017/08/22-1-220x300.jpg"
 ---
 転身回復というスキルについて、
 

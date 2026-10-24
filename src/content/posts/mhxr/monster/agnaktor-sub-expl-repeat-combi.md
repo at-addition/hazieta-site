@@ -3,6 +3,7 @@ title: "炸裂アグナコトル亜種 高速周回 オススメ編成 モンハ
 pubDate: "2017-08-05T02:03:00+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/agnaktor-sub-expl-repeat-combi/"
+cover: "../../../wp-content/uploads/2017/08/nail4.jpg"
 ---
 アグナコトル亜種 炸裂個体が
 

@@ -3,6 +3,7 @@ title: "ヒーラーの回復力（回復量）と装備 シノアリス"
 pubDate: "2017-11-16T01:17:10+09:00"
 categories: ["武器"]
 original: "http://hazieta.com/sinoalice/arms/healer-resilience/"
+cover: "../../../wp-content/uploads/2017/11/1-1.jpg"
 ---
 ヒーラーの回復力と装備の関係について、
 

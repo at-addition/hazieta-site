@@ -3,6 +3,7 @@ title: "ガムートの特徴 弱点の肉質や体力 罠、拘束、スタン 
 pubDate: "2017-08-01T01:22:01+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/hellblade-glavenus-property/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6346-169x300.png"
 ---
 ガムート、0:00から狩猟解禁されましたね！！
 

@@ -3,6 +3,7 @@ title: "ニャン検隊 次の確定報酬が10倍！！ モンハンエクス�
 pubDate: "2017-08-14T02:21:34+09:00"
 categories: ["ニャン検隊"]
 original: "http://hazieta.com/mhxr/nyan-expedition/10times/"
+cover: "../../../wp-content/uploads/2017/08/1-8-300x300.jpg"
 ---
 ギルチケ排出と七つの大罪コラボで
 

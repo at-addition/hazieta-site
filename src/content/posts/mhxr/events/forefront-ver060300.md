@@ -3,6 +3,7 @@ title: "最前線クエスト（幸運50%お守りゲット） モンハンエ�
 pubDate: "2017-08-07T00:16:28+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/forefront-ver060300/"
+cover: "../../../wp-content/uploads/2017/08/IMG_6587-169x300.png"
 ---
 ガムートと炸裂アグナコトル亜種の装備のみで挑む、
 

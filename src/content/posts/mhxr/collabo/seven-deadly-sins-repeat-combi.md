@@ -3,6 +3,7 @@ title: "七つの大罪コラボ 高速周回（ロンギ3）と挑戦クエ モ
 pubDate: "2017-08-10T18:07:28+09:00"
 categories: ["コラボ"]
 original: "http://hazieta.com/mhxr/collabo/seven-deadly-sins-repeat-combi/"
+cover: "../../../wp-content/uploads/2017/08/nail-3.jpg"
 ---
 七つの大罪コラボのイベントクエスト、
 
