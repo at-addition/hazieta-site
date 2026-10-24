@@ -1,7 +1,8 @@
 ---
 import { GAMES } from '../lib/games';
-// 当時のロゴ（うさぎ）。元の画像をなぞって SVG にしたもの。色は文字色に合わせる
-import rabbit from '../assets/rabbit.svg?raw';
+// 当時のタイトル画像（ハジエッセイ｜要は日記・www.hazieta.com とうさぎ）。元の PNG をなぞって SVG にしたもの。
+// 黒は文字色、うさぎの目の白は背景の色に合わせる
+import titleLogo from '../assets/hazieta-title.svg?raw';
 
 interface Props {
   title?: string;
@@ -37,10 +38,8 @@ const base = import.meta.env.BASE_URL;
   <body>
     <header class="site-header">
       <div class="inner">
-        <a class="logo" href={base}>
-          <span class="logo-icon" aria-hidden="true" set:html={rabbit} />
-          <span class="logo-main">{SITE_NAME}</span>
-          <span class="logo-sub">{TAGLINE}</span>
+        <a class="logo" href={base} aria-label={`${SITE_NAME} – ${TAGLINE}`}>
+          <span class="logo-title" set:html={titleLogo} />
         </a>
         <nav class="site-nav" aria-label="ゲーム">
           {GAMES.map((g) => (
@@ -112,13 +111,11 @@ const base = import.meta.env.BASE_URL;
     border-bottom: 1px solid var(--line);
   }
   .site-header .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
-  .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--fg); }
-  .logo-icon { display: block; width: 34px; height: 34px; }
-  .logo-icon :global(svg) { width: 100%; height: 100%; display: block; }
-  .logo-sub { align-self: flex-end; padding-bottom: 4px; }
+  .logo { display: flex; align-items: center; text-decoration: none; color: var(--fg); padding: 8px 0; }
+  .logo-title { display: block; width: clamp(180px, 42vw, 230px); }
+  .logo-title :global(svg) { display: block; width: 100%; height: auto; --logo-hole: var(--bg); }
   .logo-main { font-family: 'Dela Gothic One', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; line-height: 1; }
   .logo-main.small { font-size: 1.1rem; }
-  .logo-sub { font-size: 0.8rem; color: var(--muted); }
   .site-nav { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 0; }
   .site-nav a {
     font-size: 0.8rem; font-weight: 500; text-decoration: none; padding: 4px 12px; border-radius: 999px;
