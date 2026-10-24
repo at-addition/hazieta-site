@@ -1,0 +1,74 @@
+"""google-context に取り出した記事（Markdown）と画像を、この Astro サイトへ取り込む。
+
+    python -I scripts/import.py
+
+- 記事は src/content/posts/<元のパス>.md（元の URL と同じ道のりで出すため）
+- 画像は src/content/<元のパス>（記事が指しているものだけ）
+- 画像と元のサイト内へのリンク（http://hazieta.com/...）は、記事のページから見た相対パスにする。
+  記事は /<base>/<元のパス>/ に出るので、サイトの根元まではパスの段数ぶん ../ を重ねる。
+  相対にしておけば、GitHub Pages の /hazieta-site/ でも独自ドメインの / でも同じ記事で動く
+- 固定ページ（目次・プライバシーポリシー・お問い合わせ）は取り込まない。目次はトップが代わりになり、
+  プライバシーポリシーには当時の連絡先メールアドレスが書いてある
+"""
+import json, os, re, shutil, sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DOMAIN = 'hazieta.com'
+SRC = rf'C:\@Addition\google-context\doc_txt\AdSenseブログ\{DOMAIN}\記事'
+BIN = rf'C:\@Addition\google-context\doc_bin\AdSenseブログ\{DOMAIN}'
+POSTS = os.path.join(ROOT, 'src', 'content', 'posts')
+SKIP_PAGES = {'contents', 'privacy-policy', 'contact'}
+
+shutil.rmtree(POSTS, ignore_errors=True)
+os.makedirs(POSTS)
+used, n, dropped = set(), 0, 0
+for name in sorted(os.listdir(SRC)):
+    text = open(os.path.join(SRC, name), encoding='utf-8').read()
+    head, _, body = text.partition('\n---\n')
+    meta = dict(re.findall(r'^- ([^:]+): (.*)$', head, re.M))
+    title = re.search(r'^# (.*)$', head, re.M).group(1).strip()
+    path = re.sub(r'^https?://[^/]+/', '', meta['元の URL']).strip('/')
+    if path in SKIP_PAGES or not meta.get('公開'):
+        continue
+
+    up = '../' * len(path.split('/'))
+
+    def local_img(m):
+        rel = m.group(1)
+        # 縮小版（-300x200.jpg）を指していても、元の大きさの画像が取れていればそちらを使う
+        full = re.sub(r'-\d+x\d+(\.\w+)$', r'\1', rel)
+        if full != rel and os.path.exists(os.path.join(BIN, *full.split('/'))):
+            rel = full
+        used.add(rel)
+        return f']({up}{rel})'
+    body = re.sub(r'\]\((?:\.\./)+doc_bin/AdSenseブログ/' + re.escape(DOMAIN) + r'/([^)]+)\)', local_img, body)
+    # Wayback に残っていなかった自サイトの画像は、もう表示できないので落とす
+    body, gone = re.subn(r'!\[[^\]]*\]\(https?://(?:www\.)?' + re.escape(DOMAIN) + r'/[^)]*\)\s*', '', body)
+    dropped += gone
+    body = re.sub(r'\]\(https?://(?:www\.)?' + re.escape(DOMAIN) + r'/([^)]*)\)', lambda m: f']({up}{m.group(1)})', body)
+    body = re.sub(r'\]\(//', '](https://', body)
+
+    fm = {
+        'title': title,
+        'pubDate': meta['公開'],
+        'categories': [c.strip() for c in meta.get('カテゴリ', '').split(',') if c.strip()],
+        'original': meta['元の URL'],
+    }
+    if meta.get('更新'):
+        fm['updatedDate'] = meta['更新']
+    lines = ['---'] + [f'{k}: {json.dumps(v, ensure_ascii=False)}' for k, v in fm.items()] + ['---', '']
+    dst = os.path.join(POSTS, *path.split('/')) + '.md'
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    open(dst, 'w', encoding='utf-8', newline='\n').write('\n'.join(lines) + body.strip() + '\n')
+    n += 1
+
+# 画像は src/content/wp-content に置く。記事の .md から見た相対パスがそのままここを指し、
+# Astro が画像として取り込んで（縮小・変換して）出力する
+IMAGES = os.path.join(ROOT, 'src', 'content')
+shutil.rmtree(os.path.join(IMAGES, 'wp-content'), ignore_errors=True)
+for rel in sorted(used):
+    s, d = os.path.join(BIN, *rel.split('/')), os.path.join(IMAGES, *rel.split('/'))
+    os.makedirs(os.path.dirname(d), exist_ok=True)
+    shutil.copy2(s, d)
+open(os.path.join(ROOT, 'scripts', 'images.txt'), 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(used)) + '\n')
+print('posts', n, 'images', len(used), 'dropped', dropped, file=sys.stderr)
