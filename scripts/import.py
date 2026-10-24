@@ -19,8 +19,15 @@ BIN = rf'C:\@Addition\google-context\doc_bin\AdSenseブログ\{DOMAIN}'
 POSTS = os.path.join(ROOT, 'src', 'content', 'posts')
 SKIP_PAGES = {'contents', 'privacy-policy', 'contact'}
 
-shutil.rmtree(POSTS, ignore_errors=True)
-os.makedirs(POSTS)
+# 前回この道具が書いた記事だけを消す。手で書き足した記事は消さない
+IMPORTED = os.path.join(ROOT, 'scripts', 'imported.txt')
+if os.path.exists(IMPORTED):
+    for rel in open(IMPORTED, encoding='utf-8').read().split():
+        p = os.path.join(POSTS, *rel.split('/'))
+        if os.path.exists(p):
+            os.remove(p)
+os.makedirs(POSTS, exist_ok=True)
+written = []
 used, n, dropped = set(), 0, 0
 for name in sorted(os.listdir(SRC)):
     text = open(os.path.join(SRC, name), encoding='utf-8').read()
@@ -59,7 +66,10 @@ for name in sorted(os.listdir(SRC)):
     lines = ['---'] + [f'{k}: {json.dumps(v, ensure_ascii=False)}' for k, v in fm.items()] + ['---', '']
     dst = os.path.join(POSTS, *path.split('/')) + '.md'
     os.makedirs(os.path.dirname(dst), exist_ok=True)
+    if os.path.exists(dst):
+        sys.exit(f'{dst} は手で書いた記事と重なっている。どちらかの場所を変える')
     open(dst, 'w', encoding='utf-8', newline='\n').write('\n'.join(lines) + body.strip() + '\n')
+    written.append(path + '.md')
     n += 1
 
 # 画像は src/content/wp-content に置く。記事の .md から見た相対パスがそのままここを指し、
@@ -71,4 +81,5 @@ for rel in sorted(used):
     os.makedirs(os.path.dirname(d), exist_ok=True)
     shutil.copy2(s, d)
 open(os.path.join(ROOT, 'scripts', 'images.txt'), 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(used)) + '\n')
+open(IMPORTED, 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(written)) + '\n')
 print('posts', n, 'images', len(used), 'dropped', dropped, file=sys.stderr)
