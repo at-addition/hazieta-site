@@ -3,6 +3,7 @@ title: "高難度クエスト「射程を統べる者」 モンハンエクス�
 pubDate: "2017-12-24T18:15:52+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/difficulty-quest-range/"
+cover: "../../../wp-content/uploads/2017/12/3.jpg"
 ---
 生放送始まりましたねー＼(^o^)／
 

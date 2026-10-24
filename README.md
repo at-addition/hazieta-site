@@ -13,6 +13,9 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 | `src/content/posts/` | 記事 87 本の Markdown。`scripts/import.py` が書き出すので手で直さない |
 | `src/content/wp-content/` | 記事に載っている画像 245 枚。Astro が縮小・変換して出す |
 | `src/pages/` | 一覧（`index.astro`）・記事（`[...slug].astro`）・404 |
+| `src/components/PostCard.astro` | 一覧のカード（画像・ゲームのバッジ・日付・タイトル・抜き出し） |
+| `src/lib/games.ts` | パスの先頭（`mhxr` / `sinoalice` / `other`）からゲームを決める表と色。カードの抜き出しもここ |
+| `src/layouts/Base.astro` | 全ページ共通の枠と色（明るい画面・暗い画面）、フォント（Google Fonts の Dela Gothic One と Zen Kaku Gothic New） |
 | `scripts/import.py` | 取り出した記事と画像を、このサイトの形に書き直して取り込む |
 | `.github/workflows/deploy.yml` | `main` に入ったらビルドして Pages へ出す |
 
@@ -31,6 +34,7 @@ npm run build
 - 画像とサイト内リンクは**記事のページから見た相対パス**にする。GitHub Pages の `/hazieta-site/` でも独自ドメインの `/` でも同じ記事で動く
 - 縮小版の画像（`-300x200.jpg`）を指していても、元の大きさの画像が残っていればそちらを使う
 - Wayback に残っていなかった画像（119 枚）は落とす
+- 本文の最初の画像を `cover` にする（一覧のカードに出る。画像の無い記事はゲームの色の帯になる）
 
 ## 新しい記事を書き足す
 
@@ -42,6 +46,7 @@ npm run build
 title: "記事のタイトル"
 pubDate: "2026-10-24"
 categories: ["カテゴリ"]
+cover: "../../../images/2026-10-24-top.jpg"   # 一覧のカードに出す画像（省いてよい）
 ---
 
 本文。画像は src/content/images/ に置き、記事の .md から見た相対パスで書く（縮小・変換される）。

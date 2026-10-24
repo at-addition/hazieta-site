@@ -3,6 +3,7 @@ title: "アグナコトル亜種 炸裂個体 装備一覧（防具）スキル�
 pubDate: "2017-08-04T14:00:00+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/agnaktor-sub-expl-equip-ability/"
+cover: "../../../wp-content/uploads/2017/08/24-221x300.jpg"
 ---
 8/5に狩猟解禁のアグナコトル亜種（炸裂個体）、
 

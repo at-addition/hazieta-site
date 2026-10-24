@@ -3,6 +3,7 @@ title: "ニャン検隊で確定報酬7倍GET！その驚きの確率 モンハ�
 pubDate: "2017-07-28T22:15:23+09:00"
 categories: ["ニャン検隊"]
 original: "http://hazieta.com/mhxr/nyan-expedition/7-times-percent/"
+cover: "../../../wp-content/uploads/2017/07/IMG_6225-287x300.png"
 ---
 エクスプロアもアップデートしてから2日経ちましたが、
 

@@ -3,6 +3,7 @@ title: "タマミツネ 高速周回 オススメ編成（ティグ ロンギ �
 pubDate: "2017-08-08T03:16:35+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/mizutsune-best-repeat-combi/"
+cover: "../../../wp-content/uploads/2017/08/nail-1.jpg"
 ---
 炸裂アグ亜も
 

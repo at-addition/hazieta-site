@@ -3,6 +3,7 @@ title: "第18回十六人討伐戦 災凶ギギネブラ劇毒種 モンハン�
 pubDate: "2017-09-18T16:18:39+09:00"
 categories: ["イベント"]
 original: "http://hazieta.com/mhxr/events/18times-16people-deadly-poison/"
+cover: "../../../wp-content/uploads/2017/09/1-7-225x300.jpg"
 ---
 今月は、コラボイベントがなく
 

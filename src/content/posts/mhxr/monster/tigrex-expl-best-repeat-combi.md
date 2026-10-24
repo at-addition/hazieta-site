@@ -3,6 +3,7 @@ title: "炸裂ティガ 高速周回 オススメ編成（ティグ ロンギ �
 pubDate: "2017-08-04T23:41:39+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/tigrex-expl-best-repeat-combi/"
+cover: "../../../wp-content/uploads/2017/08/nail-1.jpg"
 ---
 あと数時間で炸裂個体のアグナコトル亜種が解禁ですね＼(^o^)／
 

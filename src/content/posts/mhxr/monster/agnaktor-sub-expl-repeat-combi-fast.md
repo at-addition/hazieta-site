@@ -3,6 +3,7 @@ title: "炸裂アグナコトル亜種 最速周回（ロンギ、円、ティ�
 pubDate: "2017-08-05T09:37:03+09:00"
 categories: ["モンスター"]
 original: "http://hazieta.com/mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/"
+cover: "../../../wp-content/uploads/2017/08/nail2.jpg"
 ---
 炸裂アグナコトル亜種は、
 
