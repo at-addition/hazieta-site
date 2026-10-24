@@ -8,7 +8,7 @@ export interface Game {
 }
 
 export const GAMES: Game[] = [
-  { key: 'mhxr', label: 'モンハンエクスプロア', short: 'MHXR', hue: 12 },
+  { key: 'mhxr', label: 'モンハンエクスプロア', short: 'MHXR', hue: 18 },
   { key: 'sinoalice', label: 'シノアリス', short: 'SINoALICE', hue: 285 },
   { key: 'other', label: 'そのほか', short: 'OTHER', hue: 190 },
 ];
