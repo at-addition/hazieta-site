@@ -32,6 +32,25 @@ npm run build
 - 縮小版の画像（`-300x200.jpg`）を指していても、元の大きさの画像が残っていればそちらを使う
 - Wayback に残っていなかった画像（119 枚）は落とす
 
+## 新しい記事を書き足す
+
+`src/content/posts/` の下に Markdown を1本置き、PR で `main` に入れると公開される。
+**置いた場所のパスがそのまま URL になる**（`src/content/posts/mhxr/events/new-event.md` → `/mhxr/events/new-event/`）。
+
+```markdown
+---
+title: "記事のタイトル"
+pubDate: "2026-10-24"
+categories: ["カテゴリ"]
+---
+
+本文。画像は記事の .md から見た相対パスで書く（`src/content/` の下に置けば縮小・変換される）。
+```
+
+- `original` は昔の記事の元の URL なので、新しい記事には書かない
+- `scripts/import.py` を動かし直しても、手で足した記事は消えない。消すのは前回この道具が書いた記事
+  （`scripts/imported.txt` に並んでいるもの）だけ。昔の記事と同じパスに置くと `import.py` が止まって知らせる
+
 ## 独自ドメインにするとき
 
 `hazieta.com` は 2024-07-17 に失効していて、取り直せば使える。取り直したら:
