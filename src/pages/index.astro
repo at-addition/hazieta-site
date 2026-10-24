@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import { GAMES, gameOf } from '../lib/games';
+// 当時トップに出していた hazieta.com のロゴ。1080×360 の JPEG をなぞって SVG にした（拡大してもぼけない）
+import heroLogo from '../assets/hazieta-logo.svg?raw';
 
 const posts = (await getCollection('posts')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const [latest, ...rest] = posts;
@@ -13,6 +15,9 @@ const last = latest?.data.pubDate.getFullYear();
 ---
 
 <Base>
+  <div class="banner" role="img" aria-label="hazieta.com">
+    <div class="banner-logo" set:html={heroLogo} />
+  </div>
   <section class="hero">
     <p class="hero-kicker">GAME DIARY</p>
     <h1>ハジエッセイ<span>要は日記</span></h1>
@@ -79,7 +84,15 @@ const last = latest?.data.pubDate.getFullYear();
 </script>
 
 <style>
-  .hero { padding: 56px 0 32px; }
+  /* 当時のヘッダー画像と同じ、黒地に白のロゴ */
+  .banner {
+    margin-top: 28px; border-radius: calc(var(--radius) + 6px); background: #0d0c0b; color: #fff;
+    padding: clamp(20px, 4vw, 40px) clamp(20px, 8vw, 96px);
+    box-shadow: var(--shadow); display: grid; place-items: center;
+  }
+  .banner-logo { width: min(100%, 720px); }
+  .banner-logo :global(svg) { width: 100%; height: auto; display: block; }
+  .hero { padding: 36px 0 32px; }
   .hero-kicker { margin: 0; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--accent); font-weight: 700; }
   .hero h1 {
     margin: 6px 0 10px; font-family: 'Dela Gothic One', sans-serif; font-weight: 400;
