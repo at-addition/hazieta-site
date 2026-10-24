@@ -15,6 +15,9 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 | `src/pages/` | 一覧（`index.astro`）・記事（`[...slug].astro`）・404 |
 | `src/components/PostCard.astro` | 一覧のカード（画像・ゲームのバッジ・日付・タイトル・抜き出し） |
 | `src/lib/games.ts` | パスの先頭（`mhxr` / `sinoalice` / `other`）からゲームを決める表と色。カードの抜き出しもここ |
+| `src/assets/hazieta-logo.svg` / `rabbit.svg` | 当時のロゴ（トップの黒い帯と、ヘッダーのうさぎ）。元の画像をなぞって作った SVG で、色は文字色に合わせる |
+| `public/favicon.svg` | うさぎのファビコン（明るい画面と暗い画面で色が変わる） |
+| `design/original/` | ロゴの元の画像（当時のヘッダー 1080×360 とアイコン 400×400）。`scripts/trace-logo.py` でなぞった |
 | `src/layouts/Base.astro` | 全ページ共通の枠と色（明るい画面・暗い画面）、フォント（Google Fonts の Dela Gothic One と Zen Kaku Gothic New） |
 | `scripts/import.py` | 取り出した記事と画像を、このサイトの形に書き直して取り込む |
 | `.github/workflows/deploy.yml` | `main` に入ったらビルドして Pages へ出す |
