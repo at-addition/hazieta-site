@@ -37,6 +37,9 @@ const last = latest?.data.pubDate.getFullYear();
 
   <section aria-labelledby="h-archive">
     <h2 class="section-title" id="h-archive"><span>ARCHIVE</span>記事の一覧</h2>
+    <div class="search">
+      <input type="search" class="q" placeholder="SEARCH — 記事のタイトルを検索（例: 防具 スキル）" aria-label="記事のタイトルを検索" />
+    </div>
     <div class="filters" role="group" aria-label="絞り込み">
       <div class="seg" role="group" aria-label="ゲームで絞り込む">
         <button type="button" class="f-game" data-game="" aria-pressed="true">ALL <small>{posts.length}</small></button>
@@ -62,6 +65,10 @@ const last = latest?.data.pubDate.getFullYear();
   const params = new URLSearchParams(location.search);
   let game = params.get('game') ?? '';
   let cat = '';
+  // タイトルの検索（?q=）。空白で区切った語をすべて含む記事を出す。全角・半角と大文字・小文字は区別しない
+  const qInput = document.querySelector<HTMLInputElement>('.q')!;
+  qInput.value = params.get('q') ?? '';
+  const norm = (s: string) => s.normalize('NFKC').toLowerCase();
   const gameButtons = document.querySelectorAll<HTMLButtonElement>('.f-game');
   const catButtons = document.querySelectorAll<HTMLButtonElement>('.f-cat');
   const cards = document.querySelectorAll<HTMLElement>('.card');
@@ -70,19 +77,23 @@ const last = latest?.data.pubDate.getFullYear();
   function apply() {
     gameButtons.forEach((b) => b.setAttribute('aria-pressed', String((b.dataset.game ?? '') === game)));
     catButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === cat)));
+    const words = norm(qInput.value).split(/\s+/).filter(Boolean);
     let shown = 0;
     cards.forEach((c) => {
-      const ok = (!game || c.dataset.game === game) && (!cat || (c.dataset.cats ?? '').split('|').includes(cat));
+      const ok = (!game || c.dataset.game === game) && (!cat || (c.dataset.cats ?? '').split('|').includes(cat))
+        && words.every((w) => norm(c.dataset.title ?? '').includes(w));
       (c.closest('.latest') ?? c).toggleAttribute('hidden', !ok);
       if (ok) shown++;
     });
     empty.hidden = shown > 0;
     const url = new URL(location.href);
     game ? url.searchParams.set('game', game) : url.searchParams.delete('game');
+    qInput.value.trim() ? url.searchParams.set('q', qInput.value.trim()) : url.searchParams.delete('q');
     history.replaceState(null, '', url);
   }
   gameButtons.forEach((b) => b.addEventListener('click', () => { game = b.dataset.game ?? ''; apply(); }));
   catButtons.forEach((b) => b.addEventListener('click', () => { cat = cat === b.dataset.cat ? '' : (b.dataset.cat ?? ''); apply(); }));
+  qInput.addEventListener('input', apply);
   apply();
 </script>
 
@@ -119,6 +130,12 @@ const last = latest?.data.pubDate.getFullYear();
   .section-title span { font-family: var(--hud); font-size: 1.5rem; letter-spacing: 0.14em; color: var(--fg); }
   .section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); align-self: center; }
 
+  .search { margin: 0 0 14px; }
+  .search input {
+    width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; padding: 12px 18px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+  }
+  .search input:focus { outline: none; border-color: hsl(18 95% 58%); box-shadow: 0 0 0 3px hsl(18 95% 58% / 25%); }
   .filters { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
   .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 12px; background: rgb(255 255 255 / 3%); border: 1px solid var(--line); align-self: flex-start; }
   .filters button { font-family: inherit; line-height: inherit; cursor: pointer; color: var(--fg); background: transparent; border: 1px solid transparent; }
