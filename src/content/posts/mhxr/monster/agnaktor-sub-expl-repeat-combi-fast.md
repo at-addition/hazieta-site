@@ -15,7 +15,7 @@ cover: "../../../wp-content/uploads/2017/08/nail2.jpg"
 
 ## ワンキル（ワンパン）編成
 
-![](../../../wp-content/uploads/2017/08/nail2.jpg)
+![炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR（写真 1）](../../../wp-content/uploads/2017/08/nail2.jpg)
 
 ①ティグゼーゲ
 
@@ -35,13 +35,13 @@ cover: "../../../wp-content/uploads/2017/08/nail2.jpg"
 
 なので周回速度は最速13秒になってきますー！！
 
-![](../../../wp-content/uploads/2017/08/51-169x300.jpg)
+![炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR（写真 2）](../../../wp-content/uploads/2017/08/51-169x300.jpg)
 
 ※画像はたぶん円2の構成です( ´ ▽ ` )ﾉ
 
 ティグ装備は私はこんな感じでした＼(^o^)／
 
-![](../../../wp-content/uploads/2017/08/IMG_6554-169x300.png)
+![炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR（写真 3）](../../../wp-content/uploads/2017/08/IMG_6554-169x300.png)
 
 必要スキルとしては
 
@@ -61,7 +61,7 @@ cover: "../../../wp-content/uploads/2017/08/nail2.jpg"
 
 という場合はもちろんこちらでも倒せます( ´ ▽ ` )ﾉ
 
-![](../../../wp-content/uploads/2017/08/nail3-300x75.jpg)
+![炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR（写真 4）](../../../wp-content/uploads/2017/08/nail3-300x75.jpg)
 
 ①ティグゼーゲ
 

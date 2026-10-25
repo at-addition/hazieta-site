@@ -35,7 +35,7 @@ cover: "../../../wp-content/uploads/2018/02/banaa.jpg"
 
 消費APは今回も10以下ですね♪
 
-![](../../../wp-content/uploads/2018/02/banaa.jpg)
+![防具スキルレベル上げ(モノガタリ補助) 防具イベント シノアリス（写真 1）](../../../wp-content/uploads/2018/02/banaa.jpg)
 
 ### ドロップ報酬（防具）
 
