@@ -33,7 +33,7 @@ cover: "../../../wp-content/uploads/2017/11/catch.jpg"
 
 ### 高速周回方法
 
-![](../../../wp-content/uploads/2017/11/catch.jpg)
+![キリン雷帝種 高速周回（フォルカ３戦車） モンハンエクスプロア（写真 1）](../../../wp-content/uploads/2017/11/catch.jpg)
 
 ①フォルカ
  ②フォルカ
