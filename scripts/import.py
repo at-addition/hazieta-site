@@ -85,6 +85,17 @@ for rel in sorted(used):
     os.makedirs(os.path.dirname(d), exist_ok=True)
     shutil.copy2(s, d)
 open(os.path.join(ROOT, 'scripts', 'images.txt'), 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(used)) + '\n')
+# http の画像は https のページから読み込まれず崩れて見えるので外す（2026-10-25 本人指示）
+http_dropped = 0
+for rel in written:
+    f = os.path.join(POSTS, *rel.split('/'))
+    s = open(f, encoding='utf-8').read()
+    s2, k = re.subn(r'!\[(?:[^\[\]]|\[[^\]]*\])*\]\(http://[^)]*\)', '', s)
+    if k:
+        http_dropped += k
+        open(f, 'w', encoding='utf-8', newline='\n').write(s2)
+print('http images dropped', http_dropped, file=sys.stderr)
+
 # 書いた記事の中の、サイト内に無いページへのリンク（昔の WordPress のカテゴリ・タグの一覧や、2ページ目など）は
 # 開くと「見つかりません」になるので、リンクを外して文字だけ残す。画像と、実在する記事・手で足した記事へのリンクは残す
 pages = {os.path.relpath(os.path.join(dp, f), POSTS).replace(os.sep, '/')[:-3]
@@ -108,4 +119,8 @@ for rel in written:
         open(f, 'w', encoding='utf-8', newline='\n').write(s2)
 print('unlinked', unlinked, file=sys.stderr)
 open(IMPORTED, 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(written)) + '\n')
+
+# 画像の説明（alt）を付ける。新しい記事は公開のたびに同じ道具が付ける
+import subprocess
+subprocess.run([sys.executable, '-I', os.path.join(ROOT, 'scripts', 'fill_alt.py')], check=True)
 print('posts', n, 'images', len(used), 'dropped', dropped, file=sys.stderr)
