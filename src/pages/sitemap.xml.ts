@@ -8,6 +8,7 @@ export const GET: APIRoute = async ({ site }) => {
   const url = (path: string) => new URL(`${base}${path}`, site).href;
   const rows = [
     `<url><loc>${url('')}</loc></url>`,
+    ...[...new Set(posts.flatMap((p) => { const [g, s] = p.id.split('/'); return [g, ...(p.id.split('/').length > 2 ? [`${g}/${s}`] : [])]; }))].map((d) => `<url><loc>${url(d + '/')}</loc></url>`),
     ...posts.map((p) => {
       const d = (p.data.updatedDate ?? p.data.pubDate).toISOString().slice(0, 10);
       return `<url><loc>${url(p.id + '/')}</loc><lastmod>${d}</lastmod></url>`;

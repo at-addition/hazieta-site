@@ -7,4 +7,6 @@ export default defineConfig({
   site: 'https://at-addition.github.io',
   base: '/hazieta-site',
   trailingSlash: 'always',
+  // 昔の WordPress のカテゴリの一覧（/category/<ゲーム>/）を今のゲームの一覧へ送る
+  redirects: { '/category/mhxr': '/hazieta-site/mhxr/', '/category/sinoalice': '/hazieta-site/sinoalice/', '/category/other': '/hazieta-site/other/' },
 });
