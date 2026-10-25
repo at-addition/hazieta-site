@@ -47,7 +47,7 @@ cover: "../../../wp-content/uploads/2017/08/nail-1.jpg"
 
 ## タマミツネのワンキル（ワンパン）構成
 
-![](../../../wp-content/uploads/2017/08/nail-1.jpg)
+![タマミツネ 高速周回 オススメ編成（ティグ ロンギ ティガハン アル槍）（写真 1）](../../../wp-content/uploads/2017/08/nail-1.jpg)
 
 ①ティグゼーゲ
 

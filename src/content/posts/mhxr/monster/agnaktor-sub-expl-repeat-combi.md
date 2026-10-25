@@ -23,7 +23,7 @@ cover: "../../../wp-content/uploads/2017/08/nail4.jpg"
 
 ## ワンキル（ワンパン）編成
 
-![](../../../wp-content/uploads/2017/08/nail4.jpg)
+![炸裂アグナコトル亜種 高速周回 オススメ編成 モンハンエクスプロア（写真 1）](../../../wp-content/uploads/2017/08/nail4.jpg)
 
 ①ティグゼーゲ
 
