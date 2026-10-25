@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import ListPage from '../../../components/ListPage.astro';
+import { gameOf, sectionOf, sectionLabel } from '../../../lib/games';
+
+// ゲームの中のカテゴリごとの記事の一覧（/mhxr/events/ など。記事のパスのフォルダ）
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return [...new Set(posts.map((p) => sectionOf(p.id)))].filter((s) => s.includes('/')).map((s) => {
+    const [game, sub] = s.split('/');
+    return { params: { game, sub }, props: { posts: posts.filter((p) => sectionOf(p.id) === s) } };
+  });
+}
+const { posts } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const g = gameOf(posts[0].id);
+const { game, sub } = Astro.params;
+const label = sectionLabel(posts);
+---
+
+<ListPage title={`${g.label}の${label}`} kicker={`${g.short} / ${sub.toUpperCase()}`} hue={g.hue} posts={posts} self={`${base}${game}/${sub}/`}
+  crumbs={[{ name: 'TOP', href: base }, { name: g.label, href: `${base}${game}/` }, { name: label }]} />
