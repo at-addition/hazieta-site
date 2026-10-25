@@ -90,3 +90,4 @@ cover: "../../../images/2026-10-24-top.jpg"   # 一覧のカードに出す画�
 - 構造化データ（JSON-LD）: 記事は BlogPosting、それ以外は WebSite（`src/layouts/Base.astro`）
 - RSS: `/rss.xml`（新しい50本、`src/pages/rss.xml.ts`）
 - http の画像は取り込みで外す（https のページでは出ないため）
+- 記事の最後に関連記事（同じゲームの中で、カテゴリの重なりが多い順に4本）
