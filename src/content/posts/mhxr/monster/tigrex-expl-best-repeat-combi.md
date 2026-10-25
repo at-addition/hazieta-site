@@ -27,7 +27,7 @@ cover: "../../../wp-content/uploads/2017/08/nail-1.jpg"
 
 ### ワンキル（ワンパン）編成
 
-![](../../../wp-content/uploads/2017/08/nail-1.jpg)
+![炸裂ティガ 高速周回 オススメ編成（ティグ ロンギ ティガハン アル槍）（写真 1）](../../../wp-content/uploads/2017/08/nail-1.jpg)
 
 ①ティグゼーゲ
 
@@ -74,7 +74,7 @@ cover: "../../../wp-content/uploads/2017/08/nail-1.jpg"
 
 成功すればこんな感じ＼(^o^)／
 
-![](../../../wp-content/uploads/2017/08/IMG_6502-169x300.png)
+![炸裂ティガ 高速周回 オススメ編成（ティグ ロンギ ティガハン アル槍）（写真 2）](../../../wp-content/uploads/2017/08/IMG_6502-169x300.png)
 
 必要なスキルとしては、
 
