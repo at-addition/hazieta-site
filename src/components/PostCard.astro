@@ -16,9 +16,10 @@ const date = d.toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'nume
 
 <article
   class:list={['card', { featured }]}
-  style={`--hue:${game.hue}`}
+  style={`--hue:${game.hue};--mascot:url(${base}favicon.svg)`}
   data-game={game.key}
   data-cats={post.data.categories.join('|')}
+  data-title={post.data.title}
 >
   <a href={`${base}${post.id}/`} class="card-link">
     <div class="thumb">
@@ -68,6 +69,11 @@ const date = d.toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'nume
   .card:hover .thumb :global(img) { transform: scale(1.04); filter: saturate(1.05) brightness(1); }
   /* 画像の下を暗くして、カードの本文へつなぐ */
   .thumb::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(transparent, rgb(11 11 14 / 70%)); pointer-events: none; }
+  /* 画像の無い記事は、うさぎとゲーム名の板にする */
+  .thumb-fallback {
+    width: 100%; height: 100%; display: grid; place-items: end center; padding-bottom: 12%; box-sizing: border-box;
+    background: var(--mascot) no-repeat center 32% / 34%;
+  }
   .thumb-fallback { font-family: 'Dela Gothic One', sans-serif; color: rgb(255 255 255 / 88%); font-size: 1.5rem; letter-spacing: 0.1em; }
   .on-image { position: absolute; top: 10px; left: 10px; z-index: 1; background: rgb(11 11 14 / 70%); backdrop-filter: blur(6px); }
   .body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 6px; }

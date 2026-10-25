@@ -28,3 +28,12 @@ export function excerpt(body: string | undefined, len = 70): string {
     .trim();
   return text.length > len ? text.slice(0, len) + '…' : text;
 }
+
+// ゲームの一覧（/<ゲーム>/）と、その下のカテゴリの一覧（/<ゲーム>/<フォルダ>/）。記事のパスのフォルダがそのまま URL になる
+export const sectionOf = (id: string) => id.split('/').slice(0, 2).join('/');
+/** フォルダの見出し（そのフォルダの記事に多いカテゴリ名） */
+export function sectionLabel(posts: { data: { categories: string[] } }[]): string {
+  const n = new Map<string, number>();
+  posts.forEach((p) => p.data.categories.forEach((c) => n.set(c, (n.get(c) ?? 0) + 1)));
+  return [...n].sort((a, b) => b[1] - a[1])[0]?.[0] ?? '';
+}
