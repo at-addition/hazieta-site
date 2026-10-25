@@ -3,7 +3,9 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
-import { gameOf, excerpt } from '../lib/games';
+import Crumbs from '../components/Crumbs.astro';
+import { breadcrumbLd } from '../lib/crumbs';
+import { gameOf, excerpt, sectionOf } from '../lib/games';
 
 export async function getStaticPaths() {
   // getStaticPaths はこの中だけで動くので、関連記事を選ぶ関数もここに置く。
@@ -39,8 +41,15 @@ const cover = post.data.cover ? await getImage({ src: post.data.cover, width: 80
 const ogImage = post.data.cover ? (await getImage({ src: post.data.cover, width: 1200, format: 'jpeg' })).src : undefined;
 // 検索エンジン向けの構造化データ（記事）。新しい記事も同じ形で付く
 const ldUrl = new URL(`${base}${post.id}/`, Astro.site).href;
-const jsonld = {
-  '@context': 'https://schema.org',
+// パンくず: TOP › ゲーム › カテゴリ（記事のフォルダ） › 記事
+const sec = sectionOf(post.id);
+const crumbs = [
+  { name: 'TOP', href: base },
+  { name: game.label, href: `${base}${game.key}/` },
+  ...(sec.includes('/') && post.data.categories[0] ? [{ name: post.data.categories[0], href: `${base}${sec}/` }] : []),
+  { name: post.data.title },
+];
+const posting = {
   '@type': 'BlogPosting',
   headline: post.data.title,
   datePublished: post.data.pubDate.toISOString(),
@@ -51,17 +60,19 @@ const jsonld = {
   mainEntityOfPage: ldUrl,
   inLanguage: 'ja',
 };
+const jsonld = { '@context': 'https://schema.org', '@graph': [posting, breadcrumbLd(crumbs, `${base}${post.id}/`, Astro.site)] };
 ---
 
 <Base title={post.data.title} description={excerpt(post.body, 110)} image={ogImage} type="article" jsonld={jsonld}>
   <div class="progress" aria-hidden="true"><span></span></div>
+  <Crumbs items={crumbs} />
   <article class="post" style={`--hue:${game.hue}`}>
     <header class="post-head">
       {cover && <div class="head-bg" style={`background-image:url(${cover.src})`} aria-hidden="true"></div>}
       <div class="head-inner">
         <div class="meta">
-          <a class="game-badge" href={`${base}?game=${game.key}`}>{game.short}</a>
-          {post.data.categories.map((c) => <span class="chip">#{c}</span>)}
+          <a class="game-badge" href={`${base}${game.key}/`}>{game.short}</a>
+          {post.data.categories.map((c) => (sec.includes('/') ? <a class="chip" href={`${base}${sec}/`}>#{c}</a> : <span class="chip">#{c}</span>))}
         </div>
         <h1>{post.data.title}</h1>
         <p class="date">
@@ -113,7 +124,7 @@ const jsonld = {
     box-shadow: 0 0 10px hsl(18 95% 58% / 70%);
   }
 
-  .post { max-width: 800px; margin: 32px auto 0; }
+  .post { max-width: 800px; margin: 14px auto 0; }
   .post-head {
     position: relative; overflow: hidden; border-radius: 20px; border: 1px solid var(--line);
     margin-bottom: 22px; background: linear-gradient(160deg, hsl(var(--hue) 70% 22%), #111116 70%);
