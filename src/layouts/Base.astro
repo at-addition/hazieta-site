@@ -1,4 +1,11 @@
 ---
+// フォントは Google から読まずに、このサイトから出す（@fontsource。文字の範囲ごとに分かれていて、使う分だけ読まれる）
+import '@fontsource/chakra-petch/500.css';
+import '@fontsource/chakra-petch/700.css';
+import '@fontsource/dela-gothic-one/400.css';
+import '@fontsource/zen-kaku-gothic-new/400.css';
+import '@fontsource/zen-kaku-gothic-new/500.css';
+import '@fontsource/zen-kaku-gothic-new/700.css';
 import { GAMES } from '../lib/games';
 // 当時のタイトル画像（ハジエッセイ｜要は日記・www.hazieta.com とうさぎ）。元の PNG をなぞって SVG にしたもの。
 // 黒は文字色、うさぎの目の白は背景の色に合わせる
@@ -22,7 +29,15 @@ const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image ?? `${base}icon-512.png`, Astro.site).href;
 const ld = jsonld ?? { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: new URL(base, Astro.site).href, inLanguage: 'ja' };
-const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+// 検索結果とブラウザのタブに出すタイトル。昔の記事はタイトルが長い（170字近いものもある）ので、
+// 40字を超えたら区切りのよいところで切る（記事の見出しはそのまま）
+const shortTitle = (s: string) => {
+  if (s.length <= 40) return s;
+  const cut = s.slice(0, 40);
+  const i = Math.max(cut.lastIndexOf(' '), cut.lastIndexOf('　'), cut.lastIndexOf('【'), cut.lastIndexOf('・'));
+  return (i >= 24 ? cut.slice(0, i) : cut).trimEnd() + '…';
+};
+const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
 ---
 
 <!doctype html>
@@ -51,13 +66,7 @@ const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}site.webmanifest`} />
     <meta name="theme-color" content="#0b0b0e" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
-    />
-    <title>{title ? `${title} | ${SITE_NAME} – ${TAGLINE}` : `${SITE_NAME} – ${TAGLINE}`}</title>
+    <title>{title ? pageTitle : `${SITE_NAME} – ${TAGLINE}`}</title>
   </head>
   <body>
     <div class="bg-glow" aria-hidden="true"></div>
