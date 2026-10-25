@@ -21,9 +21,11 @@ const base = import.meta.env.BASE_URL;
 const fmt = (d: Date) => d.toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '.');
 // 見出しの背景に、記事の最初の画像をぼかして敷く
 const cover = post.data.cover ? await getImage({ src: post.data.cover, width: 800 }) : undefined;
+// SNS で共有したときの画像（JPEG で幅 1200 まで）
+const ogImage = post.data.cover ? (await getImage({ src: post.data.cover, width: 1200, format: 'jpeg' })).src : undefined;
 ---
 
-<Base title={post.data.title} description={excerpt(post.body, 110)}>
+<Base title={post.data.title} description={excerpt(post.body, 110)} image={ogImage} type="article">
   <div class="progress" aria-hidden="true"><span></span></div>
   <article class="post" style={`--hue:${game.hue}`}>
     <header class="post-head">
