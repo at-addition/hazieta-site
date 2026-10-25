@@ -7,11 +7,19 @@ import titleLogo from '../assets/hazieta-title.svg?raw';
 interface Props {
   title?: string;
   description?: string;
+  /** SNS で共有したときに出す画像（サイトからの絶対パスか URL）。無ければサイトのアイコン */
+  image?: string;
+  /** 記事のページなら 'article' */
+  type?: 'website' | 'article';
 }
 const SITE_NAME = 'ハジエッセイ';
 const TAGLINE = '要は日記';
-const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記' } = Astro.props;
+const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記', image, type = 'website' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+// 検索と SNS 向け。正規の URL と、共有したときのタイトル・説明・画像
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image ?? `${base}icon-512.png`, Astro.site).href;
+const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 ---
 
 <!doctype html>
@@ -20,6 +28,16 @@ const base = import.meta.env.BASE_URL;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href={`${base}sitemap.xml`} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     <!-- 当時のロゴが黒地に白なので、サイトは常に暗い画面にする（ゲームの画面写真も映える） -->
     <meta name="color-scheme" content="dark" />
     <!-- ブラウザのタブは顔だけのうさぎ（SVG）、スマホのホーム画面とブックマークは当時のサイトアイコン（体付きのうさぎ M2） -->
