@@ -39,6 +39,8 @@ const shortTitle = (s: string) => {
 };
 // 翻訳ボタン: 押すと Google 翻訳でこのページを英語・繁体字中国語・韓国語にして開く（外部の部品は読み込まず、リンクだけ）。
 // 中国語は台湾・香港向けの繁体字（本土は Google の広告が出ないため。2026-10-27）
+// 翻訳から戻る先（404 のページ自身の URL は無いので、トップへ）
+const origin = /^\/(?:.*\/)?404(?:\.html|\/)?$/.test(Astro.url.pathname.replace(base, '/')) ? new URL(base, Astro.site).href : canonical;
 const translate = (tl: string) => `https://translate.google.com/translate?sl=ja&tl=${tl}&u=${encodeURIComponent(canonical)}`;
 const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
 ---
@@ -86,16 +88,22 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
       </div>
     </header>
     <nav class="translate" aria-label="翻訳" translate="no">
+      <!-- 翻訳されたページの中でだけ出す「日本語」（元のページへ戻る。404 ではトップへ。2026-11-03） -->
+      <a href={origin} class="tr-ja" lang="ja" data-origin={origin} hidden>日本語</a>
       <a href={translate('en')} rel="nofollow noopener" lang="en">English</a>
       <a href={translate('zh-TW')} rel="nofollow noopener" lang="zh-TW">繁體中文</a>
       <a href={translate('ko')} rel="nofollow noopener" lang="ko">한국어</a>
     </nav>
     <script is:inline>
       // 翻訳されたページ（*.translate.goog）の中では、Google がボタンのリンクを書き換えて「Can't translate this page」になる。
-      // そこでは押したときに、今の翻訳ページの言語（_x_tr_tl）だけを差し替えて開き直す（2026-10-27）
+      // そこでは押したときに、今の翻訳ページの言語（_x_tr_tl）だけを差し替えて開き直す（2026-10-27）。
+      // 「日本語」は翻訳の外の元のページを開く。リンクは Google に書き換えられるので、押したときに元の URL へ移る
       if (location.hostname.endsWith('.translate.goog')) {
+        const ja = document.querySelector('.translate .tr-ja');
+        ja.hidden = false;
         document.querySelectorAll('.translate a').forEach((a) => a.addEventListener('click', (e) => {
           e.preventDefault();
+          if (a === ja) { location.href = a.dataset.origin; return; }
           const u = new URL(location.href);
           u.searchParams.set('_x_tr_tl', a.getAttribute('lang'));
           location.href = u.href;
