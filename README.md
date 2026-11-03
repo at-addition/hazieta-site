@@ -31,7 +31,7 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 記事の元は、Wayback Machine から取り出して手元に置いたもの（このリポジトリの外）。
 
 ```powershell
-python -I scripts/import.py
+python -I scripts/import.py <記事のフォルダ> <画像のフォルダ>
 npm run build
 ```
 
