@@ -23,7 +23,10 @@ export function excerpt(body: string | undefined, len = 70): string {
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/^#+\s.*$/gm, '')
-    .replace(/[*_`>|-]/g, '')
+    // Markdown の記号だけを消す。行頭の箇条書き・引用・区切り線と、強調・表の記号。語の中の - と _ は残す（#C-pla など。2026-11-06）
+    .replace(/^[ 　]*(?:[-*_]{3,})[ 　]*$/gm, '')
+    .replace(/^[ 　]*(?:[-*+>]|\d+\.)[ 　]+/gm, '')
+    .replace(/[*`|]/g, '')
     .replace(/\s+/g, '')
     .trim();
   return text.length > len ? text.slice(0, len) + '…' : text;
