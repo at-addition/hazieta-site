@@ -2,9 +2,10 @@
 // フォントは Google から読まずに、このサイトから出す（@fontsource。文字の範囲ごとに分かれていて、使う分だけ読まれる）
 import '@fontsource/chakra-petch/500.css';
 import '@fontsource/chakra-petch/700.css';
-import '@fontsource/dela-gothic-one/400.css';
+// Dela Gothic One は画像の無いカードの英字（MHXR など）だけなので、英字の分だけ読む（2026-11-06）
+import '@fontsource/dela-gothic-one/latin-400.css';
 import '@fontsource/zen-kaku-gothic-new/400.css';
-import '@fontsource/zen-kaku-gothic-new/500.css';
+// 角ゴシックの 500 は外した。500 を指定していた日付の数字は Chakra Petch で描かれる（2026-11-06）
 import '@fontsource/zen-kaku-gothic-new/700.css';
 import { GAMES } from '../lib/games';
 // 当時のタイトル画像（ハジエッセイ｜要は日記・www.hazieta.com とうさぎ）。元の PNG をなぞって SVG にしたもの。
