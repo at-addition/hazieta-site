@@ -55,7 +55,7 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href={`${base}sitemap.xml`} />
     <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href={`${base}rss.xml`} />
-    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\u003c')} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={pageTitle} />
@@ -75,6 +75,7 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
     <title>{title ? pageTitle : `${SITE_NAME} – ${TAGLINE}`}</title>
   </head>
   <body>
+    <a class="skip" href="#main">本文へ</a>
     <div class="bg-glow" aria-hidden="true"></div>
     <header class="site-header">
       <div class="inner">
@@ -111,7 +112,7 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
         }));
       }
     </script>
-    <main>
+    <main id="main">
       <slot />
     </main>
     <footer class="site-footer">
@@ -124,6 +125,9 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
 </html>
 
 <style is:global>
+  /* キーボードで来たときだけ出る「本文へ」（2026-11-06） */
+  .skip { position: absolute; left: 8px; top: -60px; z-index: 10; padding: 8px 16px; border-radius: 8px; background: var(--bg); color: var(--fg); border: 1px solid currentColor; }
+  .skip:focus { top: 8px; }
   :root {
     color-scheme: dark;
     --bg: #0b0b0e;
