@@ -41,7 +41,9 @@ const shortTitle = (s: string) => {
 // 翻訳ボタン: 押すと Google 翻訳でこのページを英語・繁体字中国語・韓国語にして開く（外部の部品は読み込まず、リンクだけ）。
 // 中国語は台湾・香港向けの繁体字（本土は Google の広告が出ないため。2026-10-27）
 // 翻訳から戻る先（404 のページ自身の URL は無いので、トップへ）
-const origin = /^\/(?:.*\/)?404(?:\.html|\/)?$/.test(Astro.url.pathname.replace(base, '/')) ? new URL(base, Astro.site).href : canonical;
+// 404 のページ（2026-11-06）: 検索に載せず、無い URL（…/404/）を canonical にしない
+const notFound = /^\/(?:.*\/)?404(?:\.html|\/)?$/.test(Astro.url.pathname.replace(base, '/'));
+const origin = notFound ? new URL(base, Astro.site).href : canonical;
 const translate = (tl: string) => `https://translate.google.com/translate?sl=ja&tl=${tl}&u=${encodeURIComponent(canonical)}`;
 const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
 ---
@@ -52,15 +54,15 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {notFound ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <link rel="sitemap" href={`${base}sitemap.xml`} />
     <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href={`${base}rss.xml`} />
-    <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\u003c')} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\\u003c')} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!notFound && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
