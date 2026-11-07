@@ -35,8 +35,10 @@ const { Content } = await render(post);
 const game = gameOf(post.id);
 const base = import.meta.env.BASE_URL;
 const fmt = (d: Date) => d.toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '.');
-// 見出しの背景に、記事の最初の画像をぼかして敷く
-const cover = post.data.cover ? await getImage({ src: post.data.cover, width: 800 }) : undefined;
+// 見出しの背景に、記事の最初の画像をぼかして敷く。ぼかすので幅 64px で足りる（800px だと LCP が 6 秒。2026-11-07）
+const cover = post.data.cover ? await getImage({ src: post.data.cover, width: 64 }) : undefined;
+// 更新日は公開日より後のときだけ使う
+const updated = post.data.updatedDate && post.data.updatedDate > post.data.pubDate ? post.data.updatedDate : undefined;
 // SNS で共有したときの画像（JPEG で幅 1200 まで）
 const ogImage = post.data.cover ? (await getImage({ src: post.data.cover, width: 1200, format: 'jpeg' })).src : undefined;
 // 検索エンジン向けの構造化データ（記事）。新しい記事も同じ形で付く
@@ -53,7 +55,7 @@ const posting = {
   '@type': 'BlogPosting',
   headline: post.data.title,
   datePublished: post.data.pubDate.toISOString(),
-  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  dateModified: (updated ?? post.data.pubDate).toISOString(),
   ...(ogImage ? { image: new URL(ogImage, Astro.site).href } : {}),
   author: { '@type': 'Person', name: 'ハジエッセイ' },
   publisher: { '@type': 'Organization', name: 'ハジエッセイ', logo: { '@type': 'ImageObject', url: new URL(`${base}icon-512.png`, Astro.site).href } },
@@ -69,7 +71,7 @@ const shareText = encodeURIComponent(post.data.title);
 const jsonld = { '@context': 'https://schema.org', '@graph': [posting, breadcrumbLd(crumbs, `${base}${post.id}/`, Astro.site)] };
 ---
 
-<Base title={post.data.title} description={excerpt(post.body, 110)} image={ogImage} type="article" jsonld={jsonld}>
+<Base title={post.data.title} description={excerpt(post.body, 110) || post.data.title} image={ogImage} largeImage={(post.data.cover?.width ?? 0) >= 600} type="article" jsonld={jsonld}>
   <div class="progress" aria-hidden="true"><span></span></div>
   <Crumbs items={crumbs} />
   <article class="post" style={`--hue:${game.hue}`}>
@@ -83,7 +85,7 @@ const jsonld = { '@context': 'https://schema.org', '@graph': [posting, breadcrum
         <h1>{post.data.title}</h1>
         <p class="date">
           <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
-          {post.data.updatedDate && <span> / UPDATE {fmt(post.data.updatedDate)}</span>}
+          {updated && <span> / UPDATE {fmt(updated)}</span>}
         </p>
       </div>
     </header>

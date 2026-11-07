@@ -64,7 +64,7 @@ original: "http://hazieta.com/mhxr/events/hawk-ecole-quest-aug17-half-time/"
 
 [⇒炸裂アグナコトル亜種 最速周回](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
 
-[http://hazieta.com/mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
+[炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
 
 実際のところ、私がティグで
 

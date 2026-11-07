@@ -14,7 +14,7 @@ cover: "../../../wp-content/uploads/2017/08/1-7-300x90.jpg"
 炸裂アグ亜に関しては以下の周回方法
 
 [⇒炸裂アグナコトル亜種 最速周回](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
- [http://hazieta.com/mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
+ [炸裂アグナコトル亜種 最速周回（ロンギ、円、ティグ2）MHXR](../../../mhxr/monster/agnaktor-sub-expl-repeat-combi-fast/)
 
 で問題ないと思いますが、
 
@@ -129,4 +129,4 @@ cover: "../../../wp-content/uploads/2017/08/1-7-300x90.jpg"
 
 [⇒ホーク エコール装備（防具）の強化素材](../../../mhxr/armor/hawk-ecole-lvup/)
 
-[http://hazieta.com/mhxr/armor/hawk-ecole-lvup/](../../../mhxr/armor/hawk-ecole-lvup/)
+[ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア](../../../mhxr/armor/hawk-ecole-lvup/)

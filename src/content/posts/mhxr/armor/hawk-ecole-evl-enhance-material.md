@@ -60,7 +60,7 @@ Ver6.4アップデートで実装され、
  各防具の評価については下記の過去記事に( ´ ▽ ` )ﾉ
 
 [▼ホーク エコールの進化 スキルと性能の評価](../../../mhxr/armor/hawk-ecole-evl-ability/)
- [http://hazieta.com/mhxr/armor/hawk-ecole-evl-ability/](../../../mhxr/armor/hawk-ecole-evl-ability/)
+ [ホーク エコールの進化 スキルと性能の評価 モンハンエクスプロア](../../../mhxr/armor/hawk-ecole-evl-ability/)
 
 上記の過去記事にも書かせてもらったと思うのですが、
 
@@ -121,7 +121,7 @@ Ver6.4アップデートで実装され、
 レベル60までの強化素材は下記の過去記事で( ´ ▽ ` )ﾉ
 
 [▼ホーク エコール装備（防具）の強化素材](../../../mhxr/armor/hawk-ecole-lvup/)
- [http://hazieta.com/mhxr/armor/hawk-ecole-lvup/](../../../mhxr/armor/hawk-ecole-lvup/)
+ [ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア](../../../mhxr/armor/hawk-ecole-lvup/)
 
 ホーク エコールの装備は、
 

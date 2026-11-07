@@ -12,7 +12,7 @@
 - 固定ページ（目次・プライバシーポリシー・お問い合わせ）は取り込まない。目次はトップが代わりになり、
   プライバシーポリシーには当時の連絡先メールアドレスが書いてある
 """
-import json, os, re, shutil, sys
+import collections, json, os, re, shutil, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = 'hazieta.com'
@@ -121,6 +121,51 @@ for rel in written:
     if s2 != s:
         open(f, 'w', encoding='utf-8', newline='\n').write(s2)
 print('unlinked', unlinked, file=sys.stderr)
+
+# 取り出したときの崩れの残りを片付ける（2026-11-07。オシャベの import.py と同じ）
+# - 空の見出し（「#### 」だけの行）と、「|」だけの段落（表の枠の残り）を外す
+# - 見出しの段を ## から順に詰め、1つ上より2段以上深いものは1段深いところまで上げる
+# - リンクの文字が昔の URL（http://hazieta.com/…）のままのものは、リンク先の記事のタイトルにする
+titles = {}
+for rel in written:
+    m = re.search(r'^title: (.+)$', open(os.path.join(POSTS, *rel.split('/')), encoding='utf-8').read(), re.M)
+    if m:
+        titles[rel[:-3]] = json.loads(m.group(1))
+cleaned = collections.Counter()
+for rel in written:
+    f = os.path.join(POSTS, *rel.split('/'))
+    s = open(f, encoding='utf-8').read()
+    head, sep, body = s.partition('\n---\n')
+    body, k = re.subn(r'^#{1,6}[ \t　|｜]*$', '', body, flags=re.M)
+    cleaned['空の見出し'] += k
+    body, k = re.subn(r'^[ \t　]*[|｜]+[ \t　]*$', '', body, flags=re.M)
+    cleaned['「|」の段落'] += k
+    used_lv = sorted({len(h) for h in re.findall(r'^(#{2,6}) ', body, flags=re.M)})
+    remap = {lv: 2 + i for i, lv in enumerate(used_lv)}
+    if any(a != b for a, b in remap.items()):
+        body = re.sub(r'^(#{2,6}) ', lambda m: '#' * remap[len(m.group(1))] + ' ', body, flags=re.M)
+        cleaned['見出しの段を詰めた記事'] += 1
+    prev = [1]
+
+    def clamp(m):
+        lv = min(len(m.group(1)), prev[0] + 1)
+        prev[0] = lv
+        return '#' * lv + ' '
+    body = re.sub(r'^(#{2,6}) ', clamp, body, flags=re.M)
+    here = rel[:-3]
+
+    def url_text(m):
+        target = os.path.normpath(os.path.join(here, m.group(1).split('#')[0])).replace(os.sep, '/').strip('/')
+        if target not in titles:
+            return m.group(0)
+        cleaned['URL のままのリンクの文字'] += 1
+        return '[' + titles[target].replace('[', '［').replace(']', '］') + '](' + m.group(1) + ')'
+    body = re.sub(r'\[https?://(?:www\.)?' + re.escape(DOMAIN) + r'/[^\]\s]*\]\((\.\./[^)\s]*)\)', url_text, body)
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    s2 = head + sep + body
+    if s2 != s:
+        open(f, 'w', encoding='utf-8', newline='\n').write(s2)
+print('cleaned', dict(cleaned), file=sys.stderr)
 open(IMPORTED, 'w', encoding='utf-8', newline='\n').write('\n'.join(sorted(written)) + '\n')
 
 # 画像の説明（alt）を付ける。新しい記事は公開のたびに同じ道具が付ける

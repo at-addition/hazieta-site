@@ -244,4 +244,4 @@ cover: "../../../wp-content/uploads/2017/08/19-220x300.jpg"
 下記リンクにまとめておきますー＼(^o^)／
 
 [⇒ホーク エコール装備（防具）の強化素材](../../../mhxr/armor/hawk-ecole-lvup/)
- [http://hazieta.com/mhxr/armor/hawk-ecole-lvup/](../../../mhxr/armor/hawk-ecole-lvup/)
+ [ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア](../../../mhxr/armor/hawk-ecole-lvup/)
