@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # 月1回、記事を足していなくても作り直す（「この記事は〇年に書いたものです」の年数などはビルドした日から数えるため。2026-11-07）
+  schedule:
+    - cron: '0 18 1 * *'   # 毎月1日 3:00（日本時間）
 
 permissions:
   contents: read
@@ -29,7 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.first.outputs.page_url }}
     steps:
+      # GitHub 側の取り込みが 10 分を超えて時間切れになることがある（オシャベで 2026-11-06〜07 に4回）。
+      # deploy-pages の待ちは 10 分が上限なので、時間切れのときはもう1回だけ出し直す
+      - id: first
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
       - id: deployment
+        if: steps.first.outcome == 'failure'
         uses: actions/deploy-pages@v5

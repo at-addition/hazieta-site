@@ -22,7 +22,8 @@ Wayback Machine に残っていた記録から復元した静的サイト。Astr
 | `public/favicon.ico` / `apple-touch-icon.png` / `icon-192.png` / `icon-512.png` / `site.webmanifest` | スマホのホーム画面・ブックマークのアイコン。当時のサイトアイコン（体付きのうさぎ `M2`、白地の正方形）をなぞって作り直したもの |
 | `design/original/` | 当時の画像。ヘッダー 1080×360・アイコン 400×400（本人から）、サイトアイコン `M2` 300×300・タイトル画像 798×250（Wayback から）。`scripts/trace-logo.py` でなぞった |
 | `design/rabbit-body-square_1791.png` | `M2` をなぞった正方形アイコンの元（上のアイコンはここから縮めた） |
-| `src/layouts/Base.astro` | 全ページ共通の枠と色（明るい画面・暗い画面）、フォント（Google Fonts の Dela Gothic One と Zen Kaku Gothic New） |
+| `src/layouts/Base.astro` | 全ページ共通の枠と色（暗い画面だけ）、フォント（`@fontsource` の Chakra Petch・Dela Gothic One・Zen Kaku Gothic New。サイトから出す） |
+| `src/lib/excerpt.ts` | 本文から説明文を抜き出す処理（オシャベと同じファイル） |
 | `scripts/import.py` | 取り出した記事と画像を、このサイトの形に書き直して取り込む |
 | `.github/workflows/deploy.yml` | `main` に入ったらビルドして Pages へ出す |
 
@@ -71,6 +72,25 @@ cover: "../../../images/2026-10-24-top.jpg"   # 一覧のカードに出す画�
 1. `astro.config.mjs` の `site` を `https://hazieta.com`、`base` を `/` にする
 2. `public/CNAME` に `hazieta.com` と1行書く
 3. リポジトリの Settings → Pages の Custom domain に入れ、DNS を GitHub Pages に向ける
+
+
+## もう1つのサイトと共通のファイル（2026-11-07）
+
+ハジエッセイ（`hazieta-site`）とオシャベ（`oshabe-site`）は同じ作りで、次のファイルは中身をそろえている。
+**片方を直したら、もう片方も続けて直す。** 直さないときは、その理由をこの節に書く。
+
+| ファイル | そろえているもの |
+| :--- | :--- |
+| `src/lib/excerpt.ts` | 本文から説明文を抜き出す処理（中身は同じ。`diff` で確かめられる） |
+| `scripts/check_links.py` | サイト内のリンク切れの検査（中身は同じ） |
+| `.github/workflows/check.yml` | PR のたびにビルドと検査（違いは `check_links.py` に渡す base とドメインだけ） |
+| `.github/workflows/deploy.yml` | 公開（月1回の定期ビルドと、時間切れのときの出し直し） |
+| `.github/dependabot.yml` | 依存の更新の知らせ（月1回） |
+| `scripts/fill_alt.py` | 画像の説明を付ける（オシャベは商品名の行も使う。ハジエッセイは題だけ） |
+| `src/layouts/Base.astro` | 「本文へ」のリンク・構造化データの `</script>` よけ・404 の noindex・翻訳ボタン・X のカードの大きさ（色・ロゴ・広告はサイトごと） |
+| `scripts/import.py` | 取り込みの片付け（空の見出し・「\|」の段落・見出しの段・URL のままのリンクの文字）。取り込み元や外す記事はサイトごと |
+
+サイトごとに違うもの（サイト名・色・カテゴリ／ゲーム・広告・アナリティクス）は、それぞれの `Base.astro` と `themes.ts`／`games.ts` にある。
 
 ## ブランチ運用
 
