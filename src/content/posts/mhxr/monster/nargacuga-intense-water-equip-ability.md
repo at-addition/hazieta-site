@@ -229,7 +229,7 @@ cover: "../../../wp-content/uploads/2017/08/1-20.jpg"
 今回初の忍び効果もついてますね＼(^o^)／
 
 [裂界変異モンスターとは？ 隠密と忍び効果について](../../../mhxr/monster/crack-gap-mutant-monster/)
- [http://hazieta.com/mhxr/monster/crack-gap-mutant-monster/](../../../mhxr/monster/crack-gap-mutant-monster/)
+ [裂界変異モンスターとは？ 隠密と忍び モンハンエクスプロア MHXR](../../../mhxr/monster/crack-gap-mutant-monster/)
 
 #### 烈水のヘビィ
 

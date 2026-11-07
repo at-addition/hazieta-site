@@ -228,7 +228,7 @@ cover: "../../../wp-content/uploads/2017/08/11-4-265x300.jpg"
  [20170821追記]
  お守りについての注意点あり
  [⇒第17回十六人討伐戦 ポイントアップのお守り](../../../mhxr/events/17times-16people-accessory/)
- [http://hazieta.com/mhxr/events/17times-16people-accessory/](../../../mhxr/events/17times-16people-accessory/)
+ [第17回十六人討伐戦 ポイントアップのお守り モンハンエクスプロア](../../../mhxr/events/17times-16people-accessory/)
 
 #### 毒耐性防具の一覧（耐性50%未満は除外）
 

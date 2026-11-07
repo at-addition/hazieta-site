@@ -38,7 +38,7 @@ original: "http://hazieta.com/mhxr/events/17times-16people-accessory/"
 
 ▼詳しくは下記リンクを
  [⇒第17回十六人討伐戦は劇毒 装備（耐性）や対策](../../../mhxr/events/17times-16people-deadly-poison-prepare/)
- [http://hazieta.com/mhxr/events/17times-16people-deadly-poison-prepare/](../../../mhxr/events/17times-16people-deadly-poison-prepare/)
+ [第17回十六人討伐戦は劇毒 装備（耐性）や対策 モンハンエクスプロア](../../../mhxr/events/17times-16people-deadly-poison-prepare/)
 
 そのずぶ濡れ対策として
 

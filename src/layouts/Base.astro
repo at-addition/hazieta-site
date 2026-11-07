@@ -21,10 +21,12 @@ interface Props {
   type?: 'website' | 'article';
   /** 検索エンジン向けの構造化データ（JSON-LD）。無ければサイト全体（WebSite）の分を出す */
   jsonld?: Record<string, unknown>;
+  largeImage?: boolean;
 }
 const SITE_NAME = 'ハジエッセイ';
 const TAGLINE = '要は日記';
-const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記', image, type = 'website', jsonld } = Astro.props;
+// largeImage: 共有の画像が幅 600px 未満なら X では小さいカードにする（大きいカードだとぼやける。2026-11-07）
+const { title, description = 'モンハンエクスプロアやシノアリスなど、ゲームの日記', image, type = 'website', jsonld, largeImage = true } = Astro.props;
 const base = import.meta.env.BASE_URL;
 // 検索と SNS 向け。正規の URL と、共有したときのタイトル・説明・画像
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -65,7 +67,7 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
     {!notFound && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content={image && largeImage ? 'summary_large_image' : 'summary'} />
     <!-- 当時のロゴが黒地に白なので、サイトは常に暗い画面にする（ゲームの画面写真も映える） -->
     <meta name="color-scheme" content="dark" />
     <!-- ブラウザのタブは顔だけのうさぎ（SVG）、スマホのホーム画面とブックマークは当時のサイトアイコン（体付きのうさぎ M2） -->
@@ -86,7 +88,7 @@ const pageTitle = title ? `${shortTitle(title)} | ${SITE_NAME}` : SITE_NAME;
         </a>
         <nav class="site-nav" aria-label="ゲーム">
           {GAMES.map((g) => (
-            <a href={`${base}?game=${g.key}`} style={`--hue:${g.hue}`}><span class="dot"></span>{g.short}</a>
+            <a href={`${base}${g.key}/`} style={`--hue:${g.hue}`}><span class="dot"></span>{g.short}</a>
           ))}
         </nav>
       </div>

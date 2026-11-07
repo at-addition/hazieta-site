@@ -61,7 +61,7 @@ cover: "../../../wp-content/uploads/2017/08/2-10-300x160.jpg"
 内訳はこちらをどーぞ＼(^o^)／
 
 [⇒七つの大罪コラボ イベント防具どれを作る？](../../../mhxr/collabo/seven-deadly-sins-equip-which/)
- [http://hazieta.com/mhxr/collabo/seven-deadly-sins-equip-which/](../../../mhxr/collabo/seven-deadly-sins-equip-which/)
+ [七つの大罪コラボ イベント防具どれを作る？ モンハンエクスプロア](../../../mhxr/collabo/seven-deadly-sins-equip-which/)
 
 内訳と結果を見比べていると、
 

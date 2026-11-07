@@ -43,25 +43,18 @@ cover: "../../../wp-content/uploads/2017/08/2-2.jpg"
 
 その強化素材を一覧表にしておこうと思います♪
 
-### ホーク エコールの強化素材一覧表（特殊素材4種のみ）
+## ホーク エコールの強化素材一覧表（特殊素材4種のみ）
 
   | Lv  |
 
 ![ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア（写真 1）](../../../wp-content/uploads/2017/08/2-2.jpg)
 
-  |
-
 ![ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア（写真 2）](../../../wp-content/uploads/2017/08/3-2.jpg)
-
-  |
 
 ![ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア（写真 3）](../../../wp-content/uploads/2017/08/4-2.jpg)
 
-  |
-
 ![ホーク エコール装備（防具）の強化素材や進化 モンハンエクスプロア（写真 4）](../../../wp-content/uploads/2017/08/1-2.jpg)
 
-  |
   | 34  | 20  |    |    |    |
   | 35  |    |    |    |    |
   | 36  |    | 10  |    |    |
@@ -108,9 +101,9 @@ cover: "../../../wp-content/uploads/2017/08/2-2.jpg"
  シャガル以降の玉素材でした( ´ ▽ ` )ﾉ
  詳細は最新記事へ
  [▼ホーク エコールの進化素材と強化素材](../../../mhxr/armor/hawk-ecole-evl-enhance-material/)
- [http://hazieta.com/mhxr/armor/hawk-ecole-evl-enhance-material/](../../../mhxr/armor/hawk-ecole-evl-enhance-material/)
+ [ホーク エコールの進化素材と強化素材 モンハンエクスプロア](../../../mhxr/armor/hawk-ecole-evl-enhance-material/)
 
-### ホーク エコールの進化
+## ホーク エコールの進化
 
 今は予告のみですが、
 
