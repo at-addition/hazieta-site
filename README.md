@@ -83,7 +83,8 @@ cover: "../../../images/2026-10-24-top.jpg"   # 一覧のカードに出す画�
 | :--- | :--- |
 | `src/lib/excerpt.ts` | 本文から説明文を抜き出す処理（中身は同じ。`diff` で確かめられる） |
 | `scripts/check_links.py` | サイト内のリンク切れの検査（中身は同じ） |
-| `.github/workflows/check.yml` | PR のたびにビルドと検査（違いは `check_links.py` に渡す base とドメインだけ） |
+| `scripts/check_exif.py` | 画像に位置情報などの撮影情報が残っていないかの検査（中身は同じ。PR の検査と公開の前、オシャベは auto-pr.yml でも。2026-11-14） |
+| `.github/workflows/check.yml` | PR のたびに撮影情報の検査・ビルド・リンク切れの検査（違いは `check_links.py` に渡す base とドメインだけ） |
 | `.github/workflows/deploy.yml` | 公開（月1回の定期ビルドと、時間切れのときの出し直し） |
 | `.github/dependabot.yml` | 依存の更新の知らせ（月1回） |
 | `scripts/fill_alt.py` | 画像の説明を付ける（オシャベは商品名の行も使う。ハジエッセイは題だけ） |
